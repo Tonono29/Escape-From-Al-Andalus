@@ -4,7 +4,8 @@ public abstract class Estado
 {
     protected MaquinaEstados maquinaEstados;
     protected NavMeshAgent agente;
-    protected Estado(MaquinaEstados maquina, NavMeshAgent agentenavmesh,Vector3[] listadestinos)
+    protected Zombie zombie;
+    protected Estado(MaquinaEstados maquina, NavMeshAgent agentenavmesh,Vector3[] listadestinos,Zombie zombie)
     {
        this.maquinaEstados = maquina;
        this.agente = agentenavmesh;
