@@ -5,26 +5,44 @@ using UnityEngine.AI;
 
 public class Patrullando : Estado
 {
-
-    protected Patrullando(MaquinaEstados maquina,NavMeshAgent agente, Vector3[] destinos,Zombie zombie) : base(maquina, agente,destinos,zombie)
+    //private GameObject zombiepatrulla;
+    private int totalpuntosdestino;
+    private Vector3[] destinosPatrulla;
+    private Vector3 destinoActual;
+    private Zombie zombiepatrulla;
+    private MaquinaEstados mimaquinadeestados;
+    public Patrullando(MaquinaEstados maquina,NavMeshAgent agente,Zombie zombie, Vector3[] destinos) : base(maquina, agente,zombie)
     {
+        this.destinosPatrulla = destinos;
+        this.zombiepatrulla = zombie;
+        this.mimaquinadeestados = maquina;
     }
     public override void Entrar()
     {
-        int totalpuntosdestino;
-        
+        int destinoAleatorio;
+        Debug.Log("He entrado en patrullando");
+        base.Entrar();
+        totalpuntosdestino = this.destinosPatrulla.Length;
+        destinoAleatorio = Random.Range(0, totalpuntosdestino);
+        destinoActual = destinosPatrulla[destinoAleatorio];
+        this.agente.ResetPath();
+        this.agente.SetDestination(destinoActual);
     }
     public override void Salir()
     {
         this.agente.ResetPath();
+        Debug.Log("Saliendo de patrullando");
     }
-    IEnumerator patrullar(Vector3 destinopatrulla)
+    public override void Actualizar()
     {
-        this.agente.ResetPath();
-        this.agente.SetDestination(destinopatrulla);
-        while (this.zombie.transform.position!=destinopatrulla)
+        if(this.zombiepatrulla.transform.position==destinoActual)
         {
-            yield return new WaitForSeconds(1);
+            Debug.Log("He llegado al destino");
+            mimaquinadeestados.CambiarEstado(zombie.patrullando);
         }
+    }
+    public override void JugadorEncontrado(GameObject jugador)
+    {
+        Debug.Log("jugador Encontrado");
     }
 }
