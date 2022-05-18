@@ -31,13 +31,13 @@ public class Patrullando : Estado
         Debug.Log(zombie.transform.position);
         if(zombie.transform.position==destinoActual)
         {
-            maquinaEstados.CambiarEstado(zombie.patrullando);
+            Buscar buscar = new Buscar(maquinaEstados, agente, zombie);
+            maquinaEstados.CambiarEstado(buscar);
         }
     }
     public override void JugadorEncontrado(GameObject jugador)
     {
-        Debug.Log("Jugador Encontrado");
-        //maquinaEstados.EstadoActual.Salir();
-        //maquinaEstados.CambiarEstado(zombie.perseguir);
+        Perseguir perseguir = new Perseguir(maquinaEstados, agente, zombie, jugador);
+        maquinaEstados.CambiarEstado(perseguir);
     }
 }
