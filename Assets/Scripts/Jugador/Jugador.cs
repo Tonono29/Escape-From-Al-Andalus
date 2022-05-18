@@ -4,13 +4,14 @@ using UnityEngine;
 
 public class Jugador : MonoBehaviour
 {
-    private void Start()
+    private void Awake()
     {
-        
+    }
+    private void Start()
+    {   
     }
 
     private void Update()
-    {
-        
+    {   
     }
 }
