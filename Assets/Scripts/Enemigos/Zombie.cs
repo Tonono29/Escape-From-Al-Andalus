@@ -10,11 +10,13 @@ public class Zombie : MonoBehaviour
     public MaquinaEstados maquinaEstados;
     public Patrullando patrullando;
     public Buscar buscando;
+    //public Perseguir perseguir;
 
     private void Start()
     {
         maquinaEstados = new MaquinaEstados();
         patrullando = new Patrullando(maquinaEstados, agenteNav, this,destinos);
+        //perseguir = new Perseguir();
         maquinaEstados.Inicializar(patrullando);
     }
     private void Update()

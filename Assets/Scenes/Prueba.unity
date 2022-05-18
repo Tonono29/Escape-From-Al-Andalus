@@ -461,10 +461,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agenteNav: {fileID: 1518526098}
   destinos:
-  - {x: 9.38, y: 1.2, z: 0}
-  - {x: 9.38, y: 1.2, z: -15.08}
-  - {x: -9.68, y: 1.2, z: -15.08}
-  - {x: -9.68, y: 1.2, z: 6.28}
+  - {x: 9.38, y: 1.083333, z: 0}
+  - {x: 9.38, y: 1.083333, z: -15.08}
+  - {x: -9.68, y: 1.083333, z: -15.08}
+  - {x: -9.68, y: 1.083333, z: 6.28}
+  buscando: {fileID: 0}
 --- !u!136 &1518526094
 CapsuleCollider:
   m_ObjectHideFlags: 0

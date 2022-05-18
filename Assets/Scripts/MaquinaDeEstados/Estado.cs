@@ -10,6 +10,7 @@ public abstract class Estado
     {
        this.maquinaEstados = maquina;
        this.agente = agenteNavmesh;
+        this.zombie = zombie;
        Ojos.Instancia.OnJugadorEncontrado += JugadorEncontrado;
     }
     public virtual void Entrar()
