@@ -502,7 +502,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 0.95522386, y: 1}
+    m_SensorSize: {x: 0.87774295, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -538,9 +538,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c26993a4c2e15d4409445dddefe65060, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalVelocidad: 50
-  verticalVelocidad: 50
-  anguloPermitido: 80
+  horizontalVelocidad: 15
+  verticalVelocidad: 15
+  anguloPermitido: 60
 --- !u!1 &538309827
 GameObject:
   m_ObjectHideFlags: 0
