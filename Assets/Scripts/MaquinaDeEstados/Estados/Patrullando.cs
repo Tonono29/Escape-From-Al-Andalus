@@ -14,8 +14,8 @@ public class Patrullando : Estado
     }
     public override void Entrar()
     {
-        int destinoAleatorio;
         base.Entrar();
+        int destinoAleatorio;
         totalpuntosdestino = this.destinosPatrulla.Length;
         destinoAleatorio = Random.Range(0, totalpuntosdestino);
         destinoActual = destinosPatrulla[destinoAleatorio];
@@ -28,16 +28,15 @@ public class Patrullando : Estado
     }
     public override void Actualizar()
     {
-        Debug.Log(zombie.transform.position);
+        //Debug.Log(zombie.transform.position);
         if(zombie.transform.position==destinoActual)
         {
-            Buscar buscar = new Buscar(maquinaEstados, agente, zombie);
-            maquinaEstados.CambiarEstado(buscar);
+            maquinaEstados.CambiarEstado(zombie.buscando);
         }
     }
     public override void JugadorEncontrado(GameObject jugador)
-    {
-        Perseguir perseguir = new Perseguir(maquinaEstados, agente, zombie, jugador);
-        maquinaEstados.CambiarEstado(perseguir);
+    {    
+        maquinaEstados.CambiarEstado(zombie.persiguiendo);
+        cambiarJugadorEncontrado(jugador);
     }
 }

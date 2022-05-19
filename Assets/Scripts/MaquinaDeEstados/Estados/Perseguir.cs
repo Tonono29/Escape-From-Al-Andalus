@@ -5,15 +5,17 @@ using UnityEngine.AI;
 
 public class Perseguir : Estado
 {
-    private GameObject jugadorobjetivo;
     private Vector3 posicionjugador;
-    public Perseguir(MaquinaEstados maquina, NavMeshAgent agente, Zombie zombie, GameObject jugador) : base(maquina, agente, zombie)
+    public Perseguir(MaquinaEstados maquina, NavMeshAgent agente, Zombie zombie) : base(maquina, agente, zombie)
     {
-        jugadorobjetivo = jugador;
     }
     public override void Entrar()
     {
-        agente.ResetPath();  
+        if (jugadorEncontrado==null)
+        {
+            Debug.Log("Acabo de entrar y el maldito jugador de los huevos es nulo");
+        }
+        base.Entrar();
     }
 
     public override void Salir()
@@ -22,23 +24,21 @@ public class Perseguir : Estado
     }
     public override void Actualizar()
     {
-        posicionjugador = jugadorobjetivo.transform.position;
-        agente.SetDestination(posicionjugador);
+        if (jugadorEncontrado == null)
+        {
+            //Debug.Log("No puedo perseguir el jugador es nulo");
+        }
+        else
+        {
+            agente.SetDestination(jugadorEncontrado.transform.position);
+        }
     }
     public override void JugadorEncontrado(GameObject jugador)
     {
-        if (jugador==jugadorobjetivo)
-        {
-            jugadorobjetivo = jugador;
-        }
     }
     public override void JugadorPerdido(GameObject jugador)
     {
-        if (jugador==jugadorobjetivo)
-        {
-            Debug.Log("Me voy a buscar");
-            Buscar buscar = new Buscar(maquinaEstados, agente, zombie);
-            maquinaEstados.CambiarEstado(buscar);
-        }
+        //cambiarJugadorEncontrado(null);
+        maquinaEstados.CambiarEstado(zombie.buscando);
     }
 }

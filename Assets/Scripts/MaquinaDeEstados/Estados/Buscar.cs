@@ -11,9 +11,11 @@ public class Buscar : Estado
     private Vector3[] listaDestinos;
     public Buscar(MaquinaEstados maquina, NavMeshAgent agente, Zombie zombie) : base(maquina, agente, zombie)
     {
+        //this.nombreEstado = "Buscar";
     }
     public override void Entrar()
     {
+        base.Entrar();
         Vector3 target;
         listaDestinos = new Vector3[3];
         for (int i = 0; i < 3; i++)
@@ -56,8 +58,8 @@ public class Buscar : Estado
     }
     public override void JugadorEncontrado(GameObject jugador)
     {
-        Perseguir perseguir = new Perseguir(maquinaEstados, agente, zombie, jugador);
-        maquinaEstados.CambiarEstado(perseguir);
+        cambiarJugadorEncontrado(jugador);
+        maquinaEstados.CambiarEstado(zombie.persiguiendo);
     }
     private Vector3 Generardestino(Vector3 posiZombie)
     {
