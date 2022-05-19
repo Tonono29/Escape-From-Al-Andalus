@@ -26,7 +26,7 @@ public class Perseguir : Estado
     {
         if (jugadorEncontrado == null)
         {
-            Debug.Log("No puedo perseguir el jugador es nulo");
+            //Debug.Log("No puedo perseguir el jugador es nulo");
         }
         else
         {
