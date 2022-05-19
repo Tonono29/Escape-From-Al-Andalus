@@ -5,18 +5,21 @@ using UnityEngine.AI;
 
 public class Zombie : MonoBehaviour
 {
+
     [SerializeField] private NavMeshAgent agenteNav;
     [SerializeField] private Vector3[] destinos;
     public MaquinaEstados maquinaEstados;
     public Patrullando patrullando;
     public Buscar buscando;
+    public Perseguir persiguiendo;
     //public Perseguir perseguir;
 
     private void Start()
     {
         maquinaEstados = new MaquinaEstados();
         patrullando = new Patrullando(maquinaEstados, agenteNav, this,destinos);
-        //perseguir = new Perseguir();
+        buscando = new Buscar(maquinaEstados, agenteNav, this);
+        persiguiendo = new Perseguir(maquinaEstados, agenteNav, this);
         maquinaEstados.Inicializar(patrullando);
     }
     private void Update()
