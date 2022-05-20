@@ -7,7 +7,7 @@ public class Zombie : MonoBehaviour
 {
 
     [SerializeField] private NavMeshAgent agenteNav;
-    [SerializeField] private Vector3[] destinos;
+    [SerializeField] public Vector3[] destinos;
     public MaquinaEstados maquinaEstados;
     public Patrullando patrullando;
     public Buscar buscando;
@@ -21,6 +21,10 @@ public class Zombie : MonoBehaviour
         buscando = new Buscar(maquinaEstados, agenteNav, this);
         persiguiendo = new Perseguir(maquinaEstados, agenteNav, this);
         maquinaEstados.Inicializar(patrullando);
+        for (int y=0;y<destinos.Length;y++)
+        {
+            destinos[y].y = transform.position.y;
+        }
     }
     private void Update()
     {
