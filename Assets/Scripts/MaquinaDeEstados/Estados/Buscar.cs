@@ -42,7 +42,7 @@ public class Buscar : Estado
     }
     public override void Actualizar()
     {
-        if(zombie.transform.position==puntodestino)
+        if (Vector3.Distance(zombie.transform.position, puntodestino) < 1)
         {
             destinoActual++;
             if (destinoActual < 3)
@@ -68,7 +68,7 @@ public class Buscar : Estado
         float z;
         x = Random.Range(0,3);
         z = Random.Range(0,3);
-        posi = posiZombie + new Vector3(x, 0, z);
+        posi = posiZombie + new Vector3(x,0, z);
         return posi;
     }
 }
