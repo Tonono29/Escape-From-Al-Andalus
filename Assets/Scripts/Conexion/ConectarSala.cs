@@ -20,15 +20,28 @@ public class ConectarSala : MonoBehaviourPunCallbacks
     public void pulsa_botonS1()
     {
         RoomOptions opciones = new RoomOptions();
-        opciones.MaxPlayers = 2;
-        PhotonNetwork.JoinOrCreateRoom("Circuito1", opciones, TypedLobby.Default);
+        opciones.MaxPlayers = 4;
+        PhotonNetwork.JoinOrCreateRoom("Server1", opciones, TypedLobby.Default);
     }
 
     public void pulsa_botonS2()
     {
         RoomOptions opciones = new RoomOptions();
-        opciones.MaxPlayers = 2;
-        PhotonNetwork.JoinOrCreateRoom("Circuito2", opciones, TypedLobby.Default);
+        opciones.MaxPlayers = 4;
+        PhotonNetwork.JoinOrCreateRoom("Server2", opciones, TypedLobby.Default);
+    }
+    public void pulsa_botonS3()
+    {
+        RoomOptions opciones = new RoomOptions();
+        opciones.MaxPlayers = 4;
+        PhotonNetwork.JoinOrCreateRoom("Server3", opciones, TypedLobby.Default);
+    }
+
+    public void pulsa_botonS4()
+    {
+        RoomOptions opciones = new RoomOptions();
+        opciones.MaxPlayers = 4;
+        PhotonNetwork.JoinOrCreateRoom("Server4", opciones, TypedLobby.Default);
     }
 
     private void Update()
@@ -37,19 +50,27 @@ public class ConectarSala : MonoBehaviourPunCallbacks
         {
             int jugadoresC = PhotonNetwork.CurrentRoom.PlayerCount;
 
-            titulo.text = "Esperando jugadores..." + jugadoresC + "/2";
+            titulo.text = "Esperando jugadores..." + jugadoresC + "/4";
 
-            if (PhotonNetwork.IsMasterClient && jugadoresC == 2)
+            if (PhotonNetwork.IsMasterClient && jugadoresC == 4)
             {
                 string salaNombre = PhotonNetwork.CurrentRoom.Name;
 
-                if (salaNombre == "Circuito1")
+                if (salaNombre == "Server1")
                 {
-                    PhotonNetwork.LoadLevel("Circuito1");
+                    PhotonNetwork.LoadLevel("Server1");
                 }
-                else if (salaNombre == "Circuito2")
+                else if (salaNombre == "Server2")
                 {
-                    PhotonNetwork.LoadLevel("Circuito2");
+                    PhotonNetwork.LoadLevel("Server2");
+                }
+                else if (salaNombre == "Server3")
+                {
+                    PhotonNetwork.LoadLevel("Server3");
+                }
+                else if (salaNombre == "Server4")
+                {
+                    PhotonNetwork.LoadLevel("Server4");
                 }
 
                 Destroy(this);
