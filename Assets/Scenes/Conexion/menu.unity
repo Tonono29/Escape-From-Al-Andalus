@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: 70ca5c43f007ed6489ad72b4ed4b124a, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -565,11 +565,11 @@ RectTransform:
   m_Father: {fileID: 1505950409}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 367, y: 107}
-  m_SizeDelta: {x: 500, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 37, y: -125}
+  m_SizeDelta: {x: 500, y: 100}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &1293863819
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -697,8 +697,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1541558730}
-        m_TargetAssemblyTypeName: ConectarServidor, Assembly-CSharp
-        m_MethodName: pulsarBoton
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: pulsarBotonSalir
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1035,12 +1035,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1541558729}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35b8ea57a3b200d47bdb5787fc7bd49b, type: 3}
+  m_Script: {fileID: 11500000, guid: b24b420acc9f2474cb5ddc6c1798399e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nickname: {fileID: 0}
-  textoBoton: {fileID: 1882087525}
-  boton: {fileID: 1793971438}
+  botonJugar: {fileID: 1793971438}
+  botonCreditos: {fileID: 2130474812}
+  botonSalir: {fileID: 1429234538}
 --- !u!4 &1541558731
 Transform:
   m_ObjectHideFlags: 0
@@ -1212,8 +1212,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1541558730}
-        m_TargetAssemblyTypeName: ConectarServidor, Assembly-CSharp
-        m_MethodName: pulsarBoton
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: pulsarBotonJugar
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1393,11 +1393,11 @@ RectTransform:
   m_Father: {fileID: 1505950409}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 367, y: 160}
-  m_SizeDelta: {x: 500, y: 200}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 37, y: -82.100006}
+  m_SizeDelta: {x: 500, y: 100}
+  m_Pivot: {x: 1, y: 1}
 --- !u!114 &1970650059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1591,8 +1591,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1541558730}
-        m_TargetAssemblyTypeName: ConectarServidor, Assembly-CSharp
-        m_MethodName: pulsarBoton
+        m_TargetAssemblyTypeName: Menu, Assembly-CSharp
+        m_MethodName: pulsarBotonCreditos
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

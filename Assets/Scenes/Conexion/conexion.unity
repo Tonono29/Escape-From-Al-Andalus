@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: eade214e7091a0046906798e801787fc, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -161,7 +161,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 450, y: -200}
-  m_SizeDelta: {x: 200, y: 75}
+  m_SizeDelta: {x: 207, y: 75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &83599552
 MonoBehaviour:
@@ -459,7 +459,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nickname: {fileID: 1513633985}
-  textoBoton: {fileID: 887115470}
+  textoBoton: {fileID: 1983916391}
   boton: {fileID: 83599552}
 --- !u!4 &160912550
 Transform:
@@ -656,7 +656,7 @@ GameObject:
   - component: {fileID: 887115471}
   - component: {fileID: 887115470}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Tachado
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -714,7 +714,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: ________
+  m_Text: _________
 --- !u!222 &887115471
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1214,7 +1214,7 @@ GameObject:
   - component: {fileID: 1983916392}
   - component: {fileID: 1983916391}
   m_Layer: 5
-  m_Name: Tachado
+  m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
