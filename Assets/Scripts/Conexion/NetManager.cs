@@ -15,11 +15,11 @@ public class NetManager : MonoBehaviour
 
         if (numJugador == 1)
         {
-            PhotonNetwork.Instantiate("car", spaw1.transform.position, Quaternion.identity);
+            PhotonNetwork.Instantiate("Jugador01", spaw1.transform.position, Quaternion.identity);
         }
         else if (numJugador == 2)
         {
-            PhotonNetwork.Instantiate("car", spaw2.transform.position, Quaternion.identity);
+            PhotonNetwork.Instantiate("Jugador02", spaw2.transform.position, Quaternion.identity);
         }
     }    
 }
