@@ -13,9 +13,9 @@ public class Perseguir : Estado
     {
         if (jugadorEncontrado==null)
         {
-            Debug.Log("Acabo de entrar y el maldito jugador de los huevos es nulo");
         }
         base.Entrar();
+        Debug.Log("Estoy persiguien");
     }
 
     public override void Salir()
@@ -26,7 +26,6 @@ public class Perseguir : Estado
     {
         if (jugadorEncontrado == null)
         {
-            //Debug.Log("No puedo perseguir el jugador es nulo");
         }
         else
         {
@@ -38,7 +37,6 @@ public class Perseguir : Estado
     }
     public override void JugadorPerdido(GameObject jugador)
     {
-        //cambiarJugadorEncontrado(null);
         maquinaEstados.CambiarEstado(zombie.buscando);
     }
 }

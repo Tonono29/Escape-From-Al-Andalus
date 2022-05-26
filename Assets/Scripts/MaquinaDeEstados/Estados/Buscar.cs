@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Buscar : Estado
 {
+    public bool estoyEnespera = false;
     private int destinoActual = 0;
     private Vector3 puntodestino;
     private NavMeshPath caminoNavmesh=new NavMeshPath();
@@ -58,6 +59,7 @@ public class Buscar : Estado
     }
     public override void JugadorEncontrado(GameObject jugador)
     {
+        Debug.Log("jugador encontrado desde buscar");
         cambiarJugadorEncontrado(jugador);
         maquinaEstados.CambiarEstado(zombie.persiguiendo);
     }
