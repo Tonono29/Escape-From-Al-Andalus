@@ -20,7 +20,7 @@ public class Patrullando : Estado
         destinoAleatorio = Random.Range(0, totalpuntosdestino);
         destinoActual = destinosPatrulla[destinoAleatorio];
         this.agente.ResetPath();
-        Debug.Log("Mi destino actual es :" + destinoActual);
+        //Debug.Log("Mi destino actual es :" + destinoActual);
         this.agente.SetDestination(destinoActual);
     }
     public override void Salir()
@@ -36,8 +36,9 @@ public class Patrullando : Estado
         }
     }
     public override void JugadorEncontrado(GameObject jugador)
-    {    
-        maquinaEstados.CambiarEstado(zombie.persiguiendo);
+    {
+        Debug.Log("he detectado al jugador");
         cambiarJugadorEncontrado(jugador);
+        maquinaEstados.CambiarEstado(zombie.persiguiendo);
     }
 }
