@@ -9,6 +9,7 @@ public class UImanager : MonoBehaviour
     private void Start()
     {
         PlayerController.Instancia.OnInteraccionPuerta += InteractuarPuerta;
+        PlayerController.Instancia.OnLimpiar += LimpiarUI;
     }
 
     private void Update()
@@ -16,7 +17,6 @@ public class UImanager : MonoBehaviour
     }
     public void InteractuarPuerta(bool estadoPuerta)
     {
-        //Debug.Log("Estoy entrando al evento subscrito");
         if (estadoPuerta)
         {
             textoUi.text = "Pulsa E para cerrar la puerta";
@@ -25,5 +25,9 @@ public class UImanager : MonoBehaviour
         {
             textoUi.text = "Pulsa E para abrir la puerta";
         }
+    }
+    public void LimpiarUI()
+    {
+        textoUi.text = "";
     }
 }

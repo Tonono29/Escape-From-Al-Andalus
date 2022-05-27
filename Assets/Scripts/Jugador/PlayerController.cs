@@ -11,10 +11,12 @@ public class PlayerController : MonoBehaviour
     #region Delegados
     public delegate void Manejadorpuerta(bool estadoPuerta);
     public delegate void ManejadorAbrirCerrar();
+    public delegate void Limpiarpuerta();
     #endregion
     #region Eventos
     public event Manejadorpuerta OnInteraccionPuerta;
     public event ManejadorAbrirCerrar OnAbrirCerrar;
+    public event Limpiarpuerta OnLimpiar;
     #endregion
     public static PlayerController Instancia { get; private set; }
     private void Awake()
@@ -55,11 +57,15 @@ public class PlayerController : MonoBehaviour
         {
             if (miRayito.transform.gameObject.tag == "Puerta")
             {
-                //Debug.Log("He detectado la puerta "+ miRayito.transform.gameObject.GetComponent<InteraccionPuerta>().puertaAbierta+" interaccion "+OnInteraccionPuerta);
                 OnInteraccionPuerta?.Invoke(miRayito.transform.gameObject.GetComponent<InteraccionPuerta>().puertaAbierta);
+            }
+            else
+            {
+                OnLimpiar?.Invoke();
             }
             Debug.DrawRay(miCamara.transform.position, miCamara.transform.forward, Color.yellow);
         }
+
     }
     public void OnInteraccion()
     {
