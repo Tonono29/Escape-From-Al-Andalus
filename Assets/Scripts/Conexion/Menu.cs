@@ -9,13 +9,16 @@ public class Menu : MonoBehaviour
     public Button botonJugar;
     public Button botonCreditos;
     public Button botonSalir;
+    public AudioSource source;
+    public AudioClip clip;
 
     public void pulsarBotonJugar()
     {
         botonJugar.enabled = false;
         botonCreditos.enabled = false;
         botonSalir.enabled = false;
-        SceneManager.LoadScene("conexion");
+        source.PlayOneShot(clip);
+        StartCoroutine("cargarConexion");
     }
     public void pulsarBotonCreditos()
     {
@@ -29,6 +32,12 @@ public class Menu : MonoBehaviour
         botonJugar.enabled = false;
         botonCreditos.enabled = false;
         botonSalir.enabled = false;
-        //SceneManager.LoadScene("creditos");
+        Application.Quit();
+    }
+
+    IEnumerator cargarConexion()
+    {
+        yield return new WaitForSeconds(clip.length);
+        SceneManager.LoadScene("conexion");
     }
 }

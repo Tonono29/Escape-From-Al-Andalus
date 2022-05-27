@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 public class sobreBoton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     public RectTransform boton;
+    public AudioSource source;
+    public AudioClip clip;
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +15,7 @@ public class sobreBoton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
+        source.PlayOneShot(clip);
         boton.GetComponent<Animator>().Play("On");
     }
     public void OnPointerExit(PointerEventData eventData)
