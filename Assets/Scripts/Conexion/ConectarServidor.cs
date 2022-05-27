@@ -16,6 +16,8 @@ public class ConectarServidor : MonoBehaviourPunCallbacks
     public InputField nickname;
     public Text textoBoton;
     public Button boton;
+    public AudioSource source;
+    public AudioClip clip;
     // Start is called before the first frame update
     void Start()
     {
@@ -59,29 +61,36 @@ public class ConectarServidor : MonoBehaviourPunCallbacks
                 break;
         }
     }
-
     public void pulsarConectar()
     {
         boton.enabled = false;
-        textoBoton.text = "Conectando...";
+        textoBoton.text = "Conectando";
 
         if(nickname.text.Length >=1)
         {
             PhotonNetwork.NickName = nickname.text;
             PhotonNetwork.ConnectUsingSettings();
-
         }
     }
-
     public void pulsarSalir()
     {
         boton.enabled = false;
-        SceneManager.LoadScene("menu");
+        source.PlayOneShot(clip);
+        StartCoroutine("salirJuego");
     }
-
     public override void OnConnectedToMaster()
     {
+        source.PlayOneShot(clip);
+        StartCoroutine("conectarLobby");
+    }
+    IEnumerator salirJuego()
+    {
+        yield return new WaitForSeconds(clip.length);
+        SceneManager.LoadScene("menu");
+    }
+    IEnumerator conectarLobby()
+    {
+        yield return new WaitForSeconds(clip.length);
         SceneManager.LoadScene("lobby");
     }
-
 }

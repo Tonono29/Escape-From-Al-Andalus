@@ -13,6 +13,9 @@ public class ConectarSala : MonoBehaviourPunCallbacks
     public Button boton_sala2;
     public Button boton_sala3;
     public Button boton_sala4;
+    public Button boton_sala5;
+    public AudioSource source;
+    public AudioClip clip;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +25,12 @@ public class ConectarSala : MonoBehaviourPunCallbacks
 
     public void pulsa_botonS1()
     {
+        boton_sala1.enabled = false;
+        boton_sala2.enabled = false;
+        boton_sala3.enabled = false;
+        boton_sala4.enabled = false;
+        boton_sala5.enabled = false;
+        source.PlayOneShot(clip);
         RoomOptions opciones = new RoomOptions();
         opciones.MaxPlayers = 2;
         PhotonNetwork.JoinOrCreateRoom("Server1", opciones, TypedLobby.Default);
@@ -29,6 +38,12 @@ public class ConectarSala : MonoBehaviourPunCallbacks
 
     public void pulsa_botonS2()
     {
+        boton_sala1.enabled = false;
+        boton_sala2.enabled = false;
+        boton_sala3.enabled = false;
+        boton_sala4.enabled = false;
+        boton_sala5.enabled = false;
+        source.PlayOneShot(clip);
         RoomOptions opciones = new RoomOptions();
         opciones.MaxPlayers = 4;
         PhotonNetwork.JoinOrCreateRoom("Server2", opciones, TypedLobby.Default);
@@ -36,18 +51,36 @@ public class ConectarSala : MonoBehaviourPunCallbacks
 
     public void pulsa_botonS3()
     {
+        boton_sala1.enabled = false;
+        boton_sala2.enabled = false;
+        boton_sala3.enabled = false;
+        boton_sala4.enabled = false;
+        boton_sala5.enabled = false;
+        source.PlayOneShot(clip);
         RoomOptions opciones = new RoomOptions();
         opciones.MaxPlayers = 4;
         PhotonNetwork.JoinOrCreateRoom("Server3", opciones, TypedLobby.Default);
     }
     public void pulsa_botonS4()
     {
+        boton_sala1.enabled = false;
+        boton_sala2.enabled = false;
+        boton_sala3.enabled = false;
+        boton_sala4.enabled = false;
+        boton_sala5.enabled = false;
+        source.PlayOneShot(clip);
         RoomOptions opciones = new RoomOptions();
         opciones.MaxPlayers = 4;
         PhotonNetwork.JoinOrCreateRoom("Server4", opciones, TypedLobby.Default);
     }
     public void pulsa_botonS5()
     {
+        boton_sala1.enabled = false;
+        boton_sala2.enabled = false;
+        boton_sala3.enabled = false;
+        boton_sala4.enabled = false;
+        boton_sala5.enabled = false;
+        source.PlayOneShot(clip);
         RoomOptions opciones = new RoomOptions();
         opciones.MaxPlayers = 4;
         PhotonNetwork.JoinOrCreateRoom("Server5", opciones, TypedLobby.Default);
@@ -55,8 +88,13 @@ public class ConectarSala : MonoBehaviourPunCallbacks
 
     public void pulsaSalir()
     {
-        SceneManager.LoadScene("menu");
-        PhotonNetwork.Disconnect();
+        boton_sala1.enabled = false;
+        boton_sala2.enabled = false;
+        boton_sala3.enabled = false;
+        boton_sala4.enabled = false;
+        boton_sala5.enabled = false;
+        source.PlayOneShot(clip);
+        StartCoroutine("salirJuego");
     }
 
     private void Update()
@@ -91,9 +129,14 @@ public class ConectarSala : MonoBehaviourPunCallbacks
                 {
                     PhotonNetwork.LoadLevel("Server5");
                 }
-
                 Destroy(this);
             }
         }
+    }
+    IEnumerator salirJuego()
+    {
+        yield return new WaitForSeconds(clip.length);
+        SceneManager.LoadScene("menu");
+        PhotonNetwork.Disconnect();
     }
 }

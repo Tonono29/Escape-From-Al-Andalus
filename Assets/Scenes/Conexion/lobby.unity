@@ -250,6 +250,9 @@ MonoBehaviour:
   boton_sala2: {fileID: 1453691479}
   boton_sala3: {fileID: 1424550906}
   boton_sala4: {fileID: 686715749}
+  boton_sala5: {fileID: 906602532}
+  source: {fileID: 1584101499}
+  clip: {fileID: 8300000, guid: 75914f7ef10df2b40a1a4cded0641dd6, type: 3}
 --- !u!4 &160912550
 Transform:
   m_ObjectHideFlags: 0
@@ -813,12 +816,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 532477620}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94c919cdec5c26a489e8a8da0c71d6df, type: 3}
+  m_Script: {fileID: 11500000, guid: 61fd24a008e9def41be8be7a28cf4f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boton: {fileID: 532477621}
-  source: {fileID: 0}
-  clip: {fileID: 0}
+  source: {fileID: 1584101499}
+  clip: {fileID: 8300000, guid: 864e9c9e7b7b3214d903189f1be6b70d, type: 3}
 --- !u!95 &532477626
 Animator:
   serializedVersion: 3
@@ -984,12 +987,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 686715747}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94c919cdec5c26a489e8a8da0c71d6df, type: 3}
+  m_Script: {fileID: 11500000, guid: 61fd24a008e9def41be8be7a28cf4f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boton: {fileID: 686715748}
-  source: {fileID: 0}
-  clip: {fileID: 0}
+  source: {fileID: 1584101499}
+  clip: {fileID: 8300000, guid: 864e9c9e7b7b3214d903189f1be6b70d, type: 3}
 --- !u!95 &686715753
 Animator:
   serializedVersion: 3
@@ -1000,7 +1003,7 @@ Animator:
   m_GameObject: {fileID: 686715747}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3cb5ecc66ae14e649bfbc0c38fa8ad1b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1163fb711f9886740beae87391960805, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1170,12 +1173,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 906602528}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94c919cdec5c26a489e8a8da0c71d6df, type: 3}
+  m_Script: {fileID: 11500000, guid: 61fd24a008e9def41be8be7a28cf4f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boton: {fileID: 906602529}
-  source: {fileID: 0}
-  clip: {fileID: 0}
+  source: {fileID: 1584101499}
+  clip: {fileID: 8300000, guid: 864e9c9e7b7b3214d903189f1be6b70d, type: 3}
 --- !u!95 &906602531
 Animator:
   serializedVersion: 3
@@ -1186,7 +1189,7 @@ Animator:
   m_GameObject: {fileID: 906602528}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3cb5ecc66ae14e649bfbc0c38fa8ad1b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1163fb711f9886740beae87391960805, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1738,12 +1741,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1424550904}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94c919cdec5c26a489e8a8da0c71d6df, type: 3}
+  m_Script: {fileID: 11500000, guid: 61fd24a008e9def41be8be7a28cf4f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boton: {fileID: 1424550905}
-  source: {fileID: 0}
-  clip: {fileID: 0}
+  source: {fileID: 1584101499}
+  clip: {fileID: 8300000, guid: 864e9c9e7b7b3214d903189f1be6b70d, type: 3}
 --- !u!95 &1424550910
 Animator:
   serializedVersion: 3
@@ -1754,7 +1757,7 @@ Animator:
   m_GameObject: {fileID: 1424550904}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3cb5ecc66ae14e649bfbc0c38fa8ad1b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1163fb711f9886740beae87391960805, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2067,12 +2070,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1453691477}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94c919cdec5c26a489e8a8da0c71d6df, type: 3}
+  m_Script: {fileID: 11500000, guid: 61fd24a008e9def41be8be7a28cf4f43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   boton: {fileID: 1453691478}
-  source: {fileID: 0}
-  clip: {fileID: 0}
+  source: {fileID: 1584101499}
+  clip: {fileID: 8300000, guid: 864e9c9e7b7b3214d903189f1be6b70d, type: 3}
 --- !u!95 &1453691483
 Animator:
   serializedVersion: 3
@@ -2083,7 +2086,7 @@ Animator:
   m_GameObject: {fileID: 1453691477}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3cb5ecc66ae14e649bfbc0c38fa8ad1b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1163fb711f9886740beae87391960805, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -2486,7 +2489,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.5999985, y: -51.399994}
+  m_AnchoredPosition: {x: 1.6000061, y: -51.399994}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1717715691

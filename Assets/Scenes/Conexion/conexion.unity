@@ -671,6 +671,8 @@ MonoBehaviour:
   nickname: {fileID: 1513633985}
   textoBoton: {fileID: 1983916391}
   boton: {fileID: 83599552}
+  source: {fileID: 1677833243}
+  clip: {fileID: 8300000, guid: 75914f7ef10df2b40a1a4cded0641dd6, type: 3}
 --- !u!4 &160912550
 Transform:
   m_ObjectHideFlags: 0

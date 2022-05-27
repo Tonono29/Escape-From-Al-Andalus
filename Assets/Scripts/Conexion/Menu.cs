@@ -25,6 +25,7 @@ public class Menu : MonoBehaviour
         botonJugar.enabled = false;
         botonCreditos.enabled = false;
         botonSalir.enabled = false;
+        source.PlayOneShot(clip);
         //SceneManager.LoadScene("creditos");
     }
     public void pulsarBotonSalir()
@@ -32,12 +33,18 @@ public class Menu : MonoBehaviour
         botonJugar.enabled = false;
         botonCreditos.enabled = false;
         botonSalir.enabled = false;
-        Application.Quit();
+        source.PlayOneShot(clip);
+        StartCoroutine("salirJuego");
     }
 
     IEnumerator cargarConexion()
     {
         yield return new WaitForSeconds(clip.length);
         SceneManager.LoadScene("conexion");
+    }
+    IEnumerator salirJuego()
+    {
+        yield return new WaitForSeconds(clip.length);
+        Application.Quit();
     }
 }
