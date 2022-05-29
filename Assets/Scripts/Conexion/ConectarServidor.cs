@@ -11,7 +11,7 @@ public class ConectarServidor : MonoBehaviourPunCallbacks
     [SerializeField] private GameObject personaje02;
     [SerializeField] private GameObject personaje03;
     [SerializeField] private GameObject personaje04;
-    private int personajeActivo = 1;
+    public static int personajeActivo = 1;
 
     public InputField nickname;
     public Text textoBoton;
@@ -19,7 +19,7 @@ public class ConectarServidor : MonoBehaviourPunCallbacks
     public AudioSource source;
     public AudioClip clip;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         PlayerPrefs.DeleteAll();
         PhotonNetwork.AutomaticallySyncScene = true;
@@ -60,6 +60,7 @@ public class ConectarServidor : MonoBehaviourPunCallbacks
             default:
                 break;
         }
+        Debug.Log(personajeActivo);
     }
     public void pulsarConectar()
     {

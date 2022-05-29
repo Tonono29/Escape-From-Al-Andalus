@@ -18,7 +18,7 @@ public class ConectarSala : MonoBehaviourPunCallbacks
     public AudioClip clip;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         //titulo.text = "Bienvenido " + PhotonNetwork.NickName;
     }

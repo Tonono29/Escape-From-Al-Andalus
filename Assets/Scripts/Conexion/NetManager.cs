@@ -20,11 +20,11 @@ public class NetManager : MonoBehaviour
 
         if (numJugador == 1)
         {
-            PhotonNetwork.Instantiate("Jugador01", spaw1.transform.position, Quaternion.identity);
+            PhotonNetwork.Instantiate("Jugador0"+ ConectarServidor.personajeActivo, spaw1.transform.position, Quaternion.identity);
         }
         else if (numJugador == 2)
         {
-            PhotonNetwork.Instantiate("Jugador02", spaw2.transform.position, Quaternion.identity);
+            PhotonNetwork.Instantiate("Jugador0" + ConectarServidor.personajeActivo, spaw2.transform.position, Quaternion.identity);
         }
         //StartCoroutine("conectarChat");
     }
