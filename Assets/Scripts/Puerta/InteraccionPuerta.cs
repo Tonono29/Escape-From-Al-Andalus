@@ -10,7 +10,7 @@ public class InteraccionPuerta : MonoBehaviour
     public bool puertaAbierta=false;
     private void Start()
     {
-        PlayerController.Instancia.OnAbrirCerrar += AbrirCerrar;
+        PlayerControllerTonono.Instancia.OnAbrirCerrar += AbrirCerrar;
     }
     public void AbrirPuerta()
     {
