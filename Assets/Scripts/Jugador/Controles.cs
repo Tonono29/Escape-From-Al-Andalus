@@ -41,6 +41,17 @@ public class @Controles : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """"
+<<<<<<< HEAD
+=======
+                },
+                {
+                    ""name"": ""Interaccion"",
+                    ""type"": ""Button"",
+                    ""id"": ""4de54dfd-190b-402d-94f5-cca8ab35970f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+>>>>>>> PruebaUnion2
                 }
             ],
             ""bindings"": [
@@ -120,6 +131,20 @@ public class @Controles : IInputActionCollection, IDisposable
                     ""action"": ""Mirar"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+<<<<<<< HEAD
+=======
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a829d3fd-923a-424c-8487-5f3a77e741dc"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Interaccion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+>>>>>>> PruebaUnion2
                 }
             ]
         }
@@ -192,6 +217,10 @@ public class @Controles : IInputActionCollection, IDisposable
         m_Jugador_Mover = m_Jugador.FindAction("Mover", throwIfNotFound: true);
         m_Jugador_Saltar = m_Jugador.FindAction("Saltar", throwIfNotFound: true);
         m_Jugador_Mirar = m_Jugador.FindAction("Mirar", throwIfNotFound: true);
+<<<<<<< HEAD
+=======
+        m_Jugador_Interaccion = m_Jugador.FindAction("Interaccion", throwIfNotFound: true);
+>>>>>>> PruebaUnion2
     }
 
     public void Dispose()
@@ -244,6 +273,10 @@ public class @Controles : IInputActionCollection, IDisposable
     private readonly InputAction m_Jugador_Mover;
     private readonly InputAction m_Jugador_Saltar;
     private readonly InputAction m_Jugador_Mirar;
+<<<<<<< HEAD
+=======
+    private readonly InputAction m_Jugador_Interaccion;
+>>>>>>> PruebaUnion2
     public struct JugadorActions
     {
         private @Controles m_Wrapper;
@@ -251,6 +284,10 @@ public class @Controles : IInputActionCollection, IDisposable
         public InputAction @Mover => m_Wrapper.m_Jugador_Mover;
         public InputAction @Saltar => m_Wrapper.m_Jugador_Saltar;
         public InputAction @Mirar => m_Wrapper.m_Jugador_Mirar;
+<<<<<<< HEAD
+=======
+        public InputAction @Interaccion => m_Wrapper.m_Jugador_Interaccion;
+>>>>>>> PruebaUnion2
         public InputActionMap Get() { return m_Wrapper.m_Jugador; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -269,6 +306,12 @@ public class @Controles : IInputActionCollection, IDisposable
                 @Mirar.started -= m_Wrapper.m_JugadorActionsCallbackInterface.OnMirar;
                 @Mirar.performed -= m_Wrapper.m_JugadorActionsCallbackInterface.OnMirar;
                 @Mirar.canceled -= m_Wrapper.m_JugadorActionsCallbackInterface.OnMirar;
+<<<<<<< HEAD
+=======
+                @Interaccion.started -= m_Wrapper.m_JugadorActionsCallbackInterface.OnInteraccion;
+                @Interaccion.performed -= m_Wrapper.m_JugadorActionsCallbackInterface.OnInteraccion;
+                @Interaccion.canceled -= m_Wrapper.m_JugadorActionsCallbackInterface.OnInteraccion;
+>>>>>>> PruebaUnion2
             }
             m_Wrapper.m_JugadorActionsCallbackInterface = instance;
             if (instance != null)
@@ -282,6 +325,12 @@ public class @Controles : IInputActionCollection, IDisposable
                 @Mirar.started += instance.OnMirar;
                 @Mirar.performed += instance.OnMirar;
                 @Mirar.canceled += instance.OnMirar;
+<<<<<<< HEAD
+=======
+                @Interaccion.started += instance.OnInteraccion;
+                @Interaccion.performed += instance.OnInteraccion;
+                @Interaccion.canceled += instance.OnInteraccion;
+>>>>>>> PruebaUnion2
             }
         }
     }
@@ -336,5 +385,9 @@ public class @Controles : IInputActionCollection, IDisposable
         void OnMover(InputAction.CallbackContext context);
         void OnSaltar(InputAction.CallbackContext context);
         void OnMirar(InputAction.CallbackContext context);
+<<<<<<< HEAD
+=======
+        void OnInteraccion(InputAction.CallbackContext context);
+>>>>>>> PruebaUnion2
     }
 }

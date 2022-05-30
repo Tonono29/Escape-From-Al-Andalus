@@ -1,15 +1,41 @@
 ﻿using UnityEngine;
+<<<<<<< HEAD
 using Photon.Pun;
 using Photon.Voice.PUN;
 using System.Collections;
 using UnityEngine.SceneManagement;
+=======
+using UnityEngine.UI;
+>>>>>>> PruebaUnion2
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] Text textoui;
+    [SerializeField] private Camera miCamara;
     CharacterController characterController;
     public float MovementSpeed =1;
     public float Gravity = 9.8f;
     private float velocity = 0;
+    RaycastHit miRayito;
+    #region Delegados
+    //public delegate void Manejadorpuerta(bool estadoPuerta);
+    public delegate void ManejadorAbrirCerrar();
+    //public delegate void Limpiarpuerta();
+    #endregion
+    #region Eventos
+    //public event Manejadorpuerta OnInteraccionPuerta;
+    public event ManejadorAbrirCerrar OnAbrirCerrar;
+    //public event Limpiarpuerta OnLimpiar;
+    #endregion
+    public static PlayerController Instancia { get; private set; }
+    private void Awake()
+    {
+        if (Instancia != null)
+        {
+            Destroy(gameObject);
+        }
+        Instancia = this;
+    }
 
     public TextMesh nick;
     private GameObject habla;
@@ -70,7 +96,39 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+<<<<<<< HEAD
             pw.RPC("estaHablando", RpcTarget.All, false);
+=======
+            velocity -= Gravity * Time.deltaTime;
+            characterController.Move(new Vector3(0, velocity, 0));
+        }   
+    }
+    private void FixedUpdate()
+    {
+        if (Physics.Raycast(miCamara.transform.position, miCamara.transform.forward, out miRayito, 5))
+        {
+            if (miRayito.transform.gameObject.tag == "Puerta")
+            {
+                //OnInteraccionPuerta?.Invoke(miRayito.transform.gameObject.GetComponent<InteraccionPuerta>().puertaAbierta);
+                miRayito.transform.gameObject.GetComponent<InteraccionPuerta>().MostrarUiPuertas();
+            }
+            else
+            {
+                textoui.text = "";
+            }
+            Debug.DrawRay(miCamara.transform.position, miCamara.transform.forward, Color.yellow);
+        }
+
+    }
+    public void OnInteraccion()
+    {
+        if (Physics.Raycast(miCamara.transform.position, miCamara.transform.forward, out miRayito, 5))
+        {
+            if (miRayito.transform.gameObject.tag == "Puerta")
+            {
+                OnAbrirCerrar?.Invoke();
+            }
+>>>>>>> PruebaUnion2
         }
         */
     }
