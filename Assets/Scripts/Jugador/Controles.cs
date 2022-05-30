@@ -1,4 +1,3 @@
-// GENERATED AUTOMATICALLY FROM 'Assets/Inputs/Controles.inputactions'
 
 using System;
 using System.Collections;
@@ -264,6 +263,7 @@ public class @Controles : IInputActionCollection, IDisposable
     private readonly InputAction m_Jugador_Mover;
     private readonly InputAction m_Jugador_Saltar;
     private readonly InputAction m_Jugador_Mirar;
+
     private readonly InputAction m_Jugador_Interaccion;
     public struct JugadorActions
     {

@@ -5,7 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Jugador
+<<<<<<< HEAD
+  - GameMusic
+=======
   - Puerta
+>>>>>>> PruebaUnion2
   layers:
   - Default
   - TransparentFX
