@@ -63,6 +63,12 @@ public class Buscar : Estado
         cambiarJugadorEncontrado(jugador);
         maquinaEstados.CambiarEstado(zombie.persiguiendo);
     }
+    public override void Misojos(GameObject jugador)
+    {
+        Debug.Log("jugador encontrado desde buscar");
+        cambiarJugadorEncontrado(jugador);
+        maquinaEstados.CambiarEstado(zombie.persiguiendo);
+    }
     private Vector3 Generardestino(Vector3 posiZombie)
     {
         Vector3 posi;

@@ -10,8 +10,9 @@ public abstract class Estado
    
     protected Estado(MaquinaEstados maquina, NavMeshAgent agenteNavmesh,Zombie zombie)
     {
-        Ojos.Instanciaojos.OnJugadorEncontrado +=JugadorEncontrado;
-        Ojos.Instanciaojos.OnJugadorPerdido +=JugadorPerdido;
+        //Ojos.Instanciaojos.OnJugadorEncontrado +=JugadorEncontrado;
+        //Ojos.Instanciaojos.OnJugadorPerdido +=JugadorPerdido;
+        //mirarController.OjosController.Encontrado += Misojos;
         this.maquinaEstados = maquina;
         this.agente = agenteNavmesh;
         this.zombie = zombie;
@@ -23,6 +24,7 @@ public abstract class Estado
     public abstract void Salir();
     public abstract void Actualizar();
     public abstract void JugadorEncontrado(GameObject jugador);
+    public abstract void Misojos(GameObject jugador);
    
     public virtual void JugadorPerdido(GameObject jugador)
     {
@@ -40,4 +42,5 @@ public abstract class Estado
             //Debug.Log("SI se ha cambiado el jugador con exito");
         }
     }
+ 
 }
