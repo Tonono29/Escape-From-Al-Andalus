@@ -24,6 +24,7 @@ public class Perseguir : Estado
     }
     public override void Actualizar()
     {
+        Debug.Log("Mi posicion objetivo es "+jugadorEncontrado.transform.position);
         if (jugadorEncontrado == null)
         {
         }
@@ -38,5 +39,8 @@ public class Perseguir : Estado
     public override void JugadorPerdido(GameObject jugador)
     {
         maquinaEstados.CambiarEstado(zombie.buscando);
+    }
+    public override void Misojos(GameObject jugador)
+    {
     }
 }

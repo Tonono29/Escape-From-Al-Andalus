@@ -41,4 +41,10 @@ public class Patrullando : Estado
         cambiarJugadorEncontrado(jugador);
         maquinaEstados.CambiarEstado(zombie.persiguiendo);
     }
+    public override void Misojos(GameObject jugador)
+    {
+        Debug.Log("he detectado al jugador");
+        cambiarJugadorEncontrado(jugador);
+        maquinaEstados.CambiarEstado(zombie.persiguiendo);
+    }
 }
