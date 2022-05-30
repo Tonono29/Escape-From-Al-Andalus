@@ -6,12 +6,7 @@ ModelImporter:
   - first:
       74: -203655887218126122
     second: mixamo.com
-  externalObjects:
-  - first:
-      type: UnityEngine:Texture2D
-      assembly: UnityEngine.CoreModule
-      name: Juan Antonio
-    second: {fileID: 2800000, guid: 7c3cf3d5e84a884479b481d666565a04, type: 3}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
