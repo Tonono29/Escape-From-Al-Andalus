@@ -1,12 +1,9 @@
 ﻿using UnityEngine;
-<<<<<<< HEAD
 using Photon.Pun;
 using Photon.Voice.PUN;
 using System.Collections;
 using UnityEngine.SceneManagement;
-=======
 using UnityEngine.UI;
->>>>>>> PruebaUnion2
 
 public class PlayerController : MonoBehaviour
 {
@@ -35,6 +32,8 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
         }
         Instancia = this;
+        chat = GetComponent<PhotonVoiceView>();
+        habla = transform.GetChild(1).transform.gameObject;
     }
 
     public TextMesh nick;
@@ -42,14 +41,6 @@ public class PlayerController : MonoBehaviour
 
     private PhotonView pw;
     private PhotonVoiceView chat;
-
-    private void Awake()
-    {
-        chat = GetComponent<PhotonVoiceView>();
-
-        habla = transform.GetChild(1).transform.gameObject;
-    }
-
     private void Start()
     {
         pw = GetComponent<PhotonView>();
@@ -58,7 +49,6 @@ public class PlayerController : MonoBehaviour
             characterController = GetComponent<CharacterController>();
         }
     }
-
     void Update()
     {
         if (pw.IsMine)
@@ -96,9 +86,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-<<<<<<< HEAD
             pw.RPC("estaHablando", RpcTarget.All, false);
-=======
             velocity -= Gravity * Time.deltaTime;
             characterController.Move(new Vector3(0, velocity, 0));
         }   
@@ -128,7 +116,6 @@ public class PlayerController : MonoBehaviour
             {
                 OnAbrirCerrar?.Invoke();
             }
->>>>>>> PruebaUnion2
         }
         */
     }
