@@ -1,9 +1,7 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] Text textoui;
     [SerializeField] private Camera miCamara;
     CharacterController characterController;
     public float MovementSpeed =1;
@@ -11,14 +9,14 @@ public class PlayerController : MonoBehaviour
     private float velocity = 0;
     RaycastHit miRayito;
     #region Delegados
-    //public delegate void Manejadorpuerta(bool estadoPuerta);
+    public delegate void Manejadorpuerta(bool estadoPuerta);
     public delegate void ManejadorAbrirCerrar();
-    //public delegate void Limpiarpuerta();
+    public delegate void Limpiarpuerta();
     #endregion
     #region Eventos
-    //public event Manejadorpuerta OnInteraccionPuerta;
+    public event Manejadorpuerta OnInteraccionPuerta;
     public event ManejadorAbrirCerrar OnAbrirCerrar;
-    //public event Limpiarpuerta OnLimpiar;
+    public event Limpiarpuerta OnLimpiar;
     #endregion
     public static PlayerController Instancia { get; private set; }
     private void Awake()
@@ -59,12 +57,11 @@ public class PlayerController : MonoBehaviour
         {
             if (miRayito.transform.gameObject.tag == "Puerta")
             {
-                //OnInteraccionPuerta?.Invoke(miRayito.transform.gameObject.GetComponent<InteraccionPuerta>().puertaAbierta);
-                miRayito.transform.gameObject.GetComponent<InteraccionPuerta>().MostrarUiPuertas();
+                OnInteraccionPuerta?.Invoke(miRayito.transform.gameObject.GetComponent<InteraccionPuerta>().puertaAbierta);
             }
             else
             {
-                textoui.text = "";
+                OnLimpiar?.Invoke();
             }
             Debug.DrawRay(miCamara.transform.position, miCamara.transform.forward, Color.yellow);
         }

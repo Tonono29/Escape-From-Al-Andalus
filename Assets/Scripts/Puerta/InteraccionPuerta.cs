@@ -1,11 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class InteraccionPuerta : MonoBehaviour
 {
-    [SerializeField] Text textoui;
     [SerializeField]private GameObject objetoPivote;
     public bool puertaAbierta=false;
     private void Start()
@@ -31,16 +29,5 @@ public class InteraccionPuerta : MonoBehaviour
             AbrirPuerta();
         }
         puertaAbierta =!puertaAbierta;
-    }
-    public void MostrarUiPuertas()
-    {
-        if (puertaAbierta)
-        {
-            textoui.text="Pulsa E para cerrar la puerta";
-        }
-        else
-        {
-            textoui.text = "Pulsa E para abrir la puerta";
-        }
     }
 }

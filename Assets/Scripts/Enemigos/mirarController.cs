@@ -4,10 +4,24 @@ using UnityEngine;
 
 public class mirarController : MonoBehaviour
 {
+    #region Delegados
+    public delegate void ManejadorJugadorPerdido(GameObject jugador);
+    public delegate void ManejadorJugadorEncontrado(GameObject jugador);
+    #endregion
+    #region Eventos
+    public event ManejadorJugadorPerdido OnJugadorPerdido;
+    public event ManejadorJugadorEncontrado Encontrado;
+    #endregion
     private GameObject[] ojos;
     private GameObject objetivo;
+    public static mirarController OjosController { get; private set; }
     private void Awake()
     {
+        if (OjosController != null)
+        {
+            Destroy(gameObject);
+        }
+        OjosController = this;
         ojos = new GameObject[35];
         // arriba
 
@@ -58,7 +72,7 @@ public class mirarController : MonoBehaviour
                 {
                     objetivo = hit.transform.gameObject;
                     Debug.DrawRay(ojos[i].transform.position, ojos[i].transform.forward * hit.distance, Color.yellow);
-                    EscuchadorEventos.JugadorEncontrado(hit.transform.gameObject);
+                    JugadorEncontrado(objetivo);
                 }
                 else
                 {
@@ -70,5 +84,9 @@ public class mirarController : MonoBehaviour
                 Debug.DrawRay(ojos[i].transform.position, ojos[i].transform.forward * 15, Color.white);
             }
         }
+    }
+    public void JugadorEncontrado(GameObject jugador)
+    {
+        Encontrado?.Invoke(jugador);
     }
 }

@@ -12,7 +12,7 @@ public abstract class Estado
     {
         //Ojos.Instanciaojos.OnJugadorEncontrado +=JugadorEncontrado;
         //Ojos.Instanciaojos.OnJugadorPerdido +=JugadorPerdido;
-        //mirarController.OjosController.Encontrado += Misojos;
+        mirarController.OjosController.Encontrado += Misojos;
         this.maquinaEstados = maquina;
         this.agente = agenteNavmesh;
         this.zombie = zombie;
