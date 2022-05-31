@@ -3,7 +3,17 @@ guid: ef94ac9c4fcc2f24bba85c37bf6b38f6
 ModelImporter:
   serializedVersion: 21100
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: BordeVentana
+    second: {fileID: 2100000, guid: 27b37e1d7366edc48878397cc349d06a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Persiana
+    second: {fileID: 2100000, guid: 38146029a89b06d4aae91ed279822081, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
