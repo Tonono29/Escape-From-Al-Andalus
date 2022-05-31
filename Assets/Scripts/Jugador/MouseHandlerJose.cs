@@ -16,11 +16,12 @@ public class MouseHandlerJose : MonoBehaviour
     void Start()
     {
         pw = GetComponent<PhotonView>();
-        if (pw.IsMine) {
+        if (pw.IsMine)
+        {
             Camera.main.transform.SetParent(this.transform);
             Camera.main.transform.position = this.transform.position + new Vector3(0, 0.6f, 0.07f);
         }
-        
+
     }
 
     void Update()
