@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Buscar : Estado
 {
-    public bool estoyEnespera = false;
+    //public bool estoyEnespera = false;
     private int destinoActual = 0;
     private Vector3 puntodestino;
     private NavMeshPath caminoNavmesh=new NavMeshPath();
@@ -45,6 +45,10 @@ public class Buscar : Estado
     {
         if (Vector3.Distance(zombie.transform.position, puntodestino) < 1)
         {
+            zombie.IniciarEspera();
+            while(zombie.esperando)
+            {
+            }
             destinoActual++;
             if (destinoActual < 3)
             {
@@ -57,17 +61,13 @@ public class Buscar : Estado
             }
         }
     }
-    public override void JugadorEncontrado(GameObject jugador)
+    public override void JugadorEncontrado(GameObject jugador,GameObject sombie)
     {
-        Debug.Log("jugador encontrado desde buscar");
-        cambiarJugadorEncontrado(jugador);
-        maquinaEstados.CambiarEstado(zombie.persiguiendo);
-    }
-    public override void Misojos(GameObject jugador)
-    {
-        Debug.Log("jugador encontrado desde buscar");
-        cambiarJugadorEncontrado(jugador);
-        maquinaEstados.CambiarEstado(zombie.persiguiendo);
+        if (sombie == this.zombie.gameObject)
+        {
+            cambiarJugadorEncontrado(jugador);
+            maquinaEstados.CambiarEstado(zombie.persiguiendo);
+        }
     }
     private Vector3 Generardestino(Vector3 posiZombie)
     {

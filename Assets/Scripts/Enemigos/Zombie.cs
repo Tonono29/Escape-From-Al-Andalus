@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class Zombie : MonoBehaviour
 {
-    private bool esperando = false;
+    public bool esperando = false;
     [SerializeField]private bool hordaZombie;
     private NavMeshAgent agenteNav;
     [SerializeField] public Vector3[] destinos;
@@ -13,7 +13,7 @@ public class Zombie : MonoBehaviour
     public Patrullando patrullando;
     public Buscar buscando;
     public Perseguir persiguiendo;
-    //public Perseguir perseguir;
+
 
     private void Awake()
     {
@@ -49,15 +49,14 @@ public class Zombie : MonoBehaviour
     }
     public void IniciarEspera()
     {
-        esperando = true;
-        while (esperando)
-        {
-            StartCoroutine("Esperar");
-        }
+        StartCoroutine("Esperar");
     }
     IEnumerator Esperar()
     {
-        yield return new WaitForSeconds(4);
+        float espera;
+        espera = Random.Range(2f, 4f);
+        yield return new WaitForSeconds(espera);
         esperando = false;
+        StopCoroutine("Esperar");
     }
 }

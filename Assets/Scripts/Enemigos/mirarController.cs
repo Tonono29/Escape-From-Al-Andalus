@@ -58,8 +58,7 @@ public class mirarController : MonoBehaviour
                 {
                     objetivo = hit.transform.gameObject;
                     Debug.DrawRay(ojos[i].transform.position, ojos[i].transform.forward * hit.distance, Color.yellow);
-                    Debug.Log("Jugador localizado voy a lanzar evento");
-                    EscuchadorEventos.JugadorEncontrado(hit.transform.gameObject);
+                    EscuchadorEventos.JugadorEncontrado(hit.transform.gameObject,this.transform.parent.gameObject);
                 }
                 else
                 {
