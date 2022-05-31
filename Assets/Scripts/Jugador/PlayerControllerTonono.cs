@@ -10,26 +10,7 @@ public class PlayerControllerTonono : MonoBehaviour
     public float Gravity = 9.8f;
     private float velocity = 0;
     RaycastHit miRayito;
-    #region Delegados
-    //public delegate void Manejadorpuerta(bool estadoPuerta);
-    public delegate void ManejadorAbrirCerrar();
-    //public delegate void Limpiarpuerta();
-    #endregion
-    #region Eventos
-    //public event Manejadorpuerta OnInteraccionPuerta;
-    public event ManejadorAbrirCerrar OnAbrirCerrar;
-    //public event Limpiarpuerta OnLimpiar;
-    #endregion
     public static PlayerControllerTonono Instancia { get; private set; }
-    private void Awake()
-    {
-        if (Instancia != null)
-        {
-            Destroy(gameObject);
-        }
-        Instancia = this;
-    }
-
     private void Start()
     {
         characterController = GetComponent<CharacterController>();
@@ -59,7 +40,6 @@ public class PlayerControllerTonono : MonoBehaviour
         {
             if (miRayito.transform.gameObject.tag == "Puerta")
             {
-                //OnInteraccionPuerta?.Invoke(miRayito.transform.gameObject.GetComponent<InteraccionPuerta>().puertaAbierta);
                 miRayito.transform.gameObject.GetComponent<InteraccionPuerta>().MostrarUiPuertas();
             }
             else
@@ -68,7 +48,6 @@ public class PlayerControllerTonono : MonoBehaviour
             }
             Debug.DrawRay(miCamara.transform.position, miCamara.transform.forward, Color.yellow);
         }
-
     }
     public void OnInteraccion()
     {
@@ -76,7 +55,7 @@ public class PlayerControllerTonono : MonoBehaviour
         {
             if (miRayito.transform.gameObject.tag == "Puerta")
             {
-                OnAbrirCerrar?.Invoke();
+                EscuchadorEventos.AbrirCerrarPuerta(miRayito.transform.gameObject);
             }
         }
     }

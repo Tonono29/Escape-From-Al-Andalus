@@ -14,24 +14,9 @@ public class PlayerControllerJose : MonoBehaviour
     public float Gravity = 9.8f;
     private float velocity = 0;
     RaycastHit miRayito;
-    #region Delegados
-    //public delegate void Manejadorpuerta(bool estadoPuerta);
-    public delegate void ManejadorAbrirCerrar();
-    //public delegate void Limpiarpuerta();
-    #endregion
-    #region Eventos
-    //public event Manejadorpuerta OnInteraccionPuerta;
-    public event ManejadorAbrirCerrar OnAbrirCerrar;
-    //public event Limpiarpuerta OnLimpiar;
-    #endregion
     public static PlayerControllerJose Instancia { get; private set; }
     private void Awake()
     {
-        if (Instancia != null)
-        {
-            Destroy(gameObject);
-        }
-        Instancia = this;
         chat = GetComponent<PhotonVoiceView>();
         //habla = transform.GetChild(1).transform.gameObject;
     }

@@ -10,7 +10,7 @@ public class InteraccionPuerta : MonoBehaviour
     public bool puertaAbierta=false;
     private void Start()
     {
-        PlayerControllerTonono.Instancia.OnAbrirCerrar += AbrirCerrar;
+        EscuchadorEventos.OnAbrirCerrarPuerta+= AbrirCerrar;
     }
     public void AbrirPuerta()
     {
@@ -20,17 +20,20 @@ public class InteraccionPuerta : MonoBehaviour
     {
         this.transform.RotateAround(objetoPivote.transform.position, Vector3.up*-1, 120);
     }
-    public void AbrirCerrar()
+    public void AbrirCerrar(GameObject puerta)
     {
-        if (puertaAbierta)
+        if (this.gameObject == puerta)
         {
-            CerrarPuerta();
+            if (puertaAbierta)
+            {
+                CerrarPuerta();
+            }
+            else
+            {
+                AbrirPuerta();
+            }
+            puertaAbierta = !puertaAbierta;
         }
-        else
-        {
-            AbrirPuerta();
-        }
-        puertaAbierta =!puertaAbierta;
     }
     public void MostrarUiPuertas()
     {

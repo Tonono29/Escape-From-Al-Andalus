@@ -7,15 +7,20 @@ public  static class EscuchadorEventos
 {
     #region Delegados
     public delegate void ManejadorJugadorPerdido(GameObject jugador);
-    public delegate void ManejadorJugadorEncontrado(GameObject jugador);
+    public delegate void ManejadorJugadorEncontrado(GameObject jugador,GameObject sombi);
+    public delegate void ManejadorAbrirCerrar(GameObject puerta);
     #endregion
     #region Eventos
     public static event ManejadorJugadorPerdido OnJugadorPerdido;
     public static event ManejadorJugadorEncontrado OnJugadorEncontrado;
+    public static event ManejadorAbrirCerrar OnAbrirCerrarPuerta;
     #endregion
-    public static void JugadorEncontrado(GameObject juga)
+    public static void JugadorEncontrado(GameObject juga, GameObject sombie)
     {
-        Debug.Log("Voy a lanzar el evento jugador encontrado");
-        OnJugadorEncontrado?.Invoke(juga);
+        OnJugadorEncontrado?.Invoke(juga,sombie);
+    }
+    public static void AbrirCerrarPuerta(GameObject puerta)
+    {
+        OnAbrirCerrarPuerta?.Invoke(puerta);
     }
 }
