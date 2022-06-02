@@ -26,6 +26,12 @@ public class NetManager : MonoBehaviour
         {
             PhotonNetwork.Instantiate("Jugador0" + ConectarServidor.personajeActivo, spaw2.transform.position, Quaternion.identity);
         }
+        /*
+        if (PhotonNetwork.IsMasterClient)
+        {
+            PhotonNetwork.Instantiate("zombi", new Vector3(15, 0, 15), Quaternion.identity);
+        }
+        */
         //StartCoroutine("conectarChat");
     }
     private IEnumerator conectarChat()
