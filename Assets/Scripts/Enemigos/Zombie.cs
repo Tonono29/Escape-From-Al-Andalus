@@ -5,6 +5,8 @@ using UnityEngine.AI;
 
 public class Zombie : MonoBehaviour
 {
+    private Rigidbody miCuerpo;
+    private Animator animatorZombie;
     public bool esperando = false;
     [SerializeField]private bool hordaZombie;
     private NavMeshAgent agenteNav;
@@ -13,10 +15,12 @@ public class Zombie : MonoBehaviour
     public Patrullando patrullando;
     public Buscar buscando;
     public Perseguir persiguiendo;
-
+    public bool animacionAndar = false;
 
     private void Awake()
     {
+        miCuerpo = GetComponentInChildren<Rigidbody>();
+        animatorZombie = GetComponent<Animator>();
         agenteNav = GetComponent<NavMeshAgent>();
         if (hordaZombie)
         {
@@ -47,16 +51,31 @@ public class Zombie : MonoBehaviour
             destinos[i] = transform.position + new Vector3(x, 0, z);
         }
     }
-    public void IniciarEspera()
+    /*public void IniciarEspera()
     {
+        esperando = true;
         StartCoroutine("Esperar");
     }
     IEnumerator Esperar()
     {
+        Debug.Log("inicio la espera");
         float espera;
         espera = Random.Range(2f, 4f);
         yield return new WaitForSeconds(espera);
         esperando = false;
+        Debug.Log("He esperado " + espera + " segundos");
         StopCoroutine("Esperar");
+    }*/
+    private void FixedUpdate()
+    {
+        if (animacionAndar==true)
+        {
+            animatorZombie.SetBool("Moviendo",true);
+        }
+        else
+        {
+            animatorZombie.SetBool("Moviendo",false);
+        }
+ 
     }
 }

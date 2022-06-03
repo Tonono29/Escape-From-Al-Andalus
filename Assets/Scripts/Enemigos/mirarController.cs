@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class mirarController : MonoBehaviour
 {
+    [SerializeField] int distanciaOjos=15;
     private GameObject[] ojos;
     private GameObject objetivo;
     private void Awake()
@@ -52,7 +53,7 @@ public class mirarController : MonoBehaviour
         {
             RaycastHit hit;
 
-            if (Physics.Raycast(ojos[i].transform.position, ojos[i].transform.forward, out hit, 15))
+            if (Physics.Raycast(ojos[i].transform.position, ojos[i].transform.forward, out hit, distanciaOjos))
             {
                 if (hit.transform.gameObject.tag == "Jugador")
                 {
@@ -67,7 +68,7 @@ public class mirarController : MonoBehaviour
             }
             else
             {
-                Debug.DrawRay(ojos[i].transform.position, ojos[i].transform.forward * 15, Color.white);
+                Debug.DrawRay(ojos[i].transform.position, ojos[i].transform.forward * distanciaOjos, Color.white);
             }
         }
     }
