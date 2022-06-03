@@ -111,7 +111,7 @@ public class ConectarSala : MonoBehaviourPunCallbacks
 
                 if (salaNombre == "Server1")
                 {
-                    PhotonNetwork.LoadLevel("Server1");
+                    PhotonNetwork.LoadLevel("Escena Principal");
                 }
                 else if (salaNombre == "Server2")
                 {

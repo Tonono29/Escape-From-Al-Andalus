@@ -22,14 +22,6 @@ public class PlayerControllerJose : MonoBehaviour
 
     private PhotonView pw;
     private PhotonVoiceView chat;
-
-    private void Awake()
-    {
-        chat = GetComponent<PhotonVoiceView>();
-
-        habla = transform.GetChild(1).transform.gameObject;
-    }
-
     private void Start()
     {
         pw = GetComponent<PhotonView>();
