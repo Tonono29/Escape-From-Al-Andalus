@@ -26,7 +26,7 @@ public class Menu : MonoBehaviour
         botonCreditos.enabled = false;
         botonSalir.enabled = false;
         source.PlayOneShot(clip);
-        //SceneManager.LoadScene("creditos");
+        SceneManager.LoadScene("creditos");
     }
     public void pulsarBotonSalir()
     {

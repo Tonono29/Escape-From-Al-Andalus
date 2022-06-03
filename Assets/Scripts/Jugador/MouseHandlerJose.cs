@@ -16,11 +16,21 @@ public class MouseHandlerJose : MonoBehaviour
     void Start()
     {
         pw = GetComponent<PhotonView>();
-        if (pw.IsMine) {
+        if (pw.IsMine)
+        {
+            GameObject lightGameObject = new GameObject("Linterna");
+            Light lightComp = lightGameObject.AddComponent<Light>();
+
             Camera.main.transform.SetParent(this.transform);
             Camera.main.transform.position = this.transform.position + new Vector3(0, 0.6f, 0.07f);
+
+            lightComp.type = LightType.Spot;
+            lightComp.spotAngle = 66;
+
+            lightComp.transform.SetParent(Camera.main.transform);
+            lightComp.transform.position = this.transform.position + new Vector3(0, 0.6f, 0.07f);
         }
-        
+
     }
 
     void Update()
