@@ -10,7 +10,13 @@ public class PlayerControllerJose : MonoBehaviour
     public float MovementSpeed = 1;
     public float Gravity = 9.8f;
     private float velocity = 0;
-
+    RaycastHit miRayito;
+    public static PlayerControllerJose Instancia { get; private set; }
+    private void Awake()
+    {
+        chat = GetComponent<PhotonVoiceView>();
+        //habla = transform.GetChild(1).transform.gameObject;
+    }
     public TextMesh nick;
     private GameObject habla;
 

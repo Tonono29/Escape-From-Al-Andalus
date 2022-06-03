@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class mirarController : MonoBehaviour
 {
+    [SerializeField] int distanciaOjos=15;
     private GameObject[] ojos;
     private GameObject objetivo;
     private void Awake()
@@ -52,14 +53,13 @@ public class mirarController : MonoBehaviour
         {
             RaycastHit hit;
 
-            if (Physics.Raycast(ojos[i].transform.position, ojos[i].transform.forward, out hit, 15))
+            if (Physics.Raycast(ojos[i].transform.position, ojos[i].transform.forward, out hit, distanciaOjos))
             {
                 if (hit.transform.gameObject.tag == "Jugador")
                 {
                     objetivo = hit.transform.gameObject;
                     Debug.DrawRay(ojos[i].transform.position, ojos[i].transform.forward * hit.distance, Color.yellow);
-                    Debug.Log("Jugador localizado voy a lanzar evento");
-                    EscuchadorEventos.JugadorEncontrado(hit.transform.gameObject);
+                    EscuchadorEventos.JugadorEncontrado(hit.transform.gameObject,this.transform.parent.gameObject);
                 }
                 else
                 {
@@ -68,7 +68,7 @@ public class mirarController : MonoBehaviour
             }
             else
             {
-                Debug.DrawRay(ojos[i].transform.position, ojos[i].transform.forward * 15, Color.white);
+                Debug.DrawRay(ojos[i].transform.position, ojos[i].transform.forward * distanciaOjos, Color.white);
             }
         }
     }
