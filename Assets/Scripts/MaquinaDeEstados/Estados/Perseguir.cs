@@ -11,11 +11,11 @@ public class Perseguir : Estado
     }
     public override void Entrar()
     {
+        this.zombie.animacionAndar = true;
         if (jugadorEncontrado==null)
         {
         }
         base.Entrar();
-        Debug.Log("Estoy persiguien");
     }
 
     public override void Salir()
