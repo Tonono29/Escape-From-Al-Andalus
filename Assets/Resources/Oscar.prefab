@@ -1026,6 +1026,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanciaOjos: 15
+  objetivo: {fileID: 0}
 --- !u!1 &1964237510673980784
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,7 +1897,9 @@ MonoBehaviour:
   - {x: 135.76, y: 10.667, z: 62.538948}
   - {x: 135.76, y: 10.667, z: 70.65}
   - {x: 139.48, y: 10.667, z: 72.69}
-  animacionAndar: 0
+  distanciREstante: 0
+  amosaver: {x: 0, y: 0, z: 0}
+  factorCorreccionAltura: 0
 --- !u!95 &7972613124979327330
 Animator:
   serializedVersion: 3
@@ -1950,6 +1953,7 @@ MonoBehaviour:
   observableSearch: 2
   ObservedComponents:
   - {fileID: -2836537229775966244}
+  - {fileID: -7183783389300043918}
   sceneViewId: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

@@ -1221,7 +1221,9 @@ MonoBehaviour:
   - {x: 137.12, y: 5.92, z: 49.74}
   - {x: 139.86, y: 5.92, z: 51.42}
   - {x: 136.33, y: 5.92, z: 54.37}
-  animacionAndar: 0
+  distanciREstante: 0
+  amosaver: {x: 0, y: 0, z: 0}
+  factorCorreccionAltura: 0
 --- !u!95 &7300798266060832880
 Animator:
   serializedVersion: 3
@@ -1656,6 +1658,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanciaOjos: 15
+  objetivo: {fileID: 0}
 --- !u!1 &7842020826441997215
 GameObject:
   m_ObjectHideFlags: 0

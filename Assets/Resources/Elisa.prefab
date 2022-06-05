@@ -594,7 +594,9 @@ MonoBehaviour:
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
   - {x: 0, y: 0, z: 0}
-  animacionAndar: 0
+  distanciREstante: 0
+  amosaver: {x: 0, y: 0, z: 0}
+  factorCorreccionAltura: 0
 --- !u!136 &2986131864734783219
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -1631,6 +1633,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanciaOjos: 15
+  objetivo: {fileID: 0}
 --- !u!1 &7867864650225361695
 GameObject:
   m_ObjectHideFlags: 0

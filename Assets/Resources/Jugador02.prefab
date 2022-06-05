@@ -235,6 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 5
   Gravity: 9.8
+  tengoLlave: 0
   nick: {fileID: 4974135743513559304}
 --- !u!143 &1557342406902296247
 CharacterController:

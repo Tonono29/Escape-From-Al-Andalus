@@ -235,6 +235,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 5
   Gravity: 9.8
+  tengoLlave: 0
   nick: {fileID: 1145706086664570756}
 --- !u!143 &7137388325572915914
 CharacterController:
@@ -313,9 +314,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_SynchronizeVelocity: 1
-  m_SynchronizeAngularVelocity: 0
-  m_TeleportEnabled: 0
-  m_TeleportIfDistanceGreaterThan: 3
+  m_SynchronizeAngularVelocity: 1
+  m_TeleportEnabled: 1
+  m_TeleportIfDistanceGreaterThan: 4
 --- !u!114 &5528845900953089480
 MonoBehaviour:
   m_ObjectHideFlags: 0
