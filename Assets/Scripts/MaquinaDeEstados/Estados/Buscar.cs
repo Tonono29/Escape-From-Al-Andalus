@@ -7,22 +7,26 @@ public class Buscar : Estado
 { 
     //public bool estoyEnespera = false;
     float inicioEspera=0;
-    float tiempoEspera=4;
-    float tiempoTranscurrido=0;
-    private bool esperacompletado=false;
-    private int destinoActual = 0;
-    private Vector3 puntodestino;
-    private NavMeshPath caminoNavmesh=new NavMeshPath();
-    private Vector3[] listaDestinos;
+    private float tiempoEspera=4;
+    private float rotacionTotal;
+    private float velocidadrotacion;
+    //private bool esperacompletado=false;
+    //private int destinoActual = 0;
+    //private Vector3 puntodestino;
+    //private NavMeshPath caminoNavmesh=new NavMeshPath();
+    //private Vector3[] listaDestinos;
     public Buscar(MaquinaEstados maquina, NavMeshAgent agente, Zombie zombie) : base(maquina, agente, zombie)
     {
-        //this.nombreEstado = "Buscar";
     }
     public override void Entrar()
     {
-        base.Entrar();
-        Vector3 target;
-        listaDestinos = new Vector3[3];
+        inicioEspera = Time.time;
+        tiempoEspera = Random.Range(2f, 5f);
+        rotacionTotal = Random.Range(-360, 360);
+        velocidadrotacion = rotacionTotal / tiempoEspera;
+        //Vector3 target;
+        //listaDestinos = new Vector3[3];
+        /*
         for (int i = 0; i < 3; i++)
         {
             bool bueno =false;
@@ -44,22 +48,27 @@ public class Buscar : Estado
                 }
             }
         }
-        puntodestino = listaDestinos[0];
-        esperacompletado = false;
-        inicioEspera = 0;
-        agente.SetDestination(puntodestino);
-        destinoActual = 0;
+        */
+        //puntodestino = listaDestinos[0];
+        //esperacompletado = false;
+        //inicioEspera = 0;
+        //agente.SetDestination(puntodestino);
+        //destinoActual = 0;
     }
 
     public override void Salir()
     {
-        agente.ResetPath();
     }
     public override void Actualizar()
     {
+        if (Time.time - inicioEspera >= tiempoEspera)
+        {
+            maquinaEstados.CambiarEstado(zombie.patrullando);
+        }
+        this.zombie.transform.Rotate(0,velocidadrotacion*Time.deltaTime, 0);
+        /*
         if (Vector3.Distance(zombie.transform.position, puntodestino) < 1.5)
         {
-
             if (esperacompletado)
             {
                 destinoActual++;
@@ -67,7 +76,6 @@ public class Buscar : Estado
                 {
                     puntodestino = listaDestinos[destinoActual];
                     agente.SetDestination(puntodestino);
-                    this.zombie.animacionAndar = true;
                     esperacompletado = false;
                     inicioEspera =0;
                 }
@@ -80,31 +88,37 @@ public class Buscar : Estado
             {
                 if (inicioEspera == 0)
                 {
-                    this.zombie.animacionAndar = false;
+                    agente.ResetPath();
                     inicioEspera = Time.time;
                     tiempoEspera = Random.Range(2f, 5f);
                 }
-                if(Time.time-inicioEspera>=tiempoEspera)
+                else
                 {
-                    esperacompletado = true;
+                    //Debug.Log (Time.time - inicioEspera);
+                    if (Time.time - inicioEspera >= tiempoEspera)
+                    {
+                        esperacompletado = true;
+                    }
+                    else
+                    {
+                        if ((Time.time - inicioEspera) % 1 == 0)
+                        {
+                            this.zombie.transform.rotation = Random.rotation;
+                        }
+                    }
                 }
             }
-        }
-        else
-        {
-
-        }
+        */
     }
-    public override void JugadorEncontrado(GameObject jugador,GameObject sombie)
+    /*public override void JugadorEncontrado(GameObject jugador,GameObject sombie)
     {
         if (sombie == this.zombie.gameObject)
         {
-            //this.zombie.animatorZombie.SetBool("Esperando", false);
             cambiarJugadorEncontrado(jugador);
             maquinaEstados.CambiarEstado(zombie.persiguiendo);
         }
-    }
-    private Vector3 Generardestino(Vector3 posiZombie)
+    }*/
+    /*private Vector3 Generardestino(Vector3 posiZombie)
     {
         Vector3 posi;
         float x;
@@ -113,5 +127,5 @@ public class Buscar : Estado
         z = Random.Range(1,2);
         posi = posiZombie + new Vector3(x,0, z);
         return posi;
-    }
+    }*/
 }

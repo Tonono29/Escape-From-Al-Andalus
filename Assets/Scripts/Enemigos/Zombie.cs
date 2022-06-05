@@ -15,10 +15,12 @@ public class Zombie : MonoBehaviour
     public Patrullando patrullando;
     public Buscar buscando;
     public Perseguir persiguiendo;
-    public bool animacionAndar = false;
-
+    public float distanciREstante;
+    public Vector3 amosaver;
+    public float factorCorreccionAltura;
     private void Awake()
     {
+        EscuchadorEventos.OnJugadorEncontrado += JugadorEncontrado;
         miCuerpo = GetComponentInChildren<Rigidbody>();
         animatorZombie = GetComponent<Animator>();
         agenteNav = GetComponent<NavMeshAgent>();
@@ -38,6 +40,8 @@ public class Zombie : MonoBehaviour
     }
     private void Update()
     {
+        amosaver = agenteNav.destination;
+        distanciREstante = agenteNav.remainingDistance;
         maquinaEstados.EstadoActual.Actualizar();
     }
     private void DestinosHorda()
@@ -51,31 +55,24 @@ public class Zombie : MonoBehaviour
             destinos[i] = transform.position + new Vector3(x, 0, z);
         }
     }
-    /*public void IniciarEspera()
-    {
-        esperando = true;
-        StartCoroutine("Esperar");
-    }
-    IEnumerator Esperar()
-    {
-        Debug.Log("inicio la espera");
-        float espera;
-        espera = Random.Range(2f, 4f);
-        yield return new WaitForSeconds(espera);
-        esperando = false;
-        Debug.Log("He esperado " + espera + " segundos");
-        StopCoroutine("Esperar");
-    }*/
     private void FixedUpdate()
     {
-        if (animacionAndar==true)
+        if (this.agenteNav.velocity.magnitude > 0.3)
         {
-            animatorZombie.SetBool("Moviendo",true);
+            animatorZombie.SetBool("Moviendo", true);
         }
         else
         {
-            animatorZombie.SetBool("Moviendo",false);
+            animatorZombie.SetBool("Moviendo", false);
         }
  
+    }
+    public void JugadorEncontrado(GameObject jugador, GameObject sombie)
+    {
+        if ((sombie == this.gameObject) && (maquinaEstados.EstadoActual != persiguiendo))
+        {
+            persiguiendo.jugadorEncontrado = jugador;
+            maquinaEstados.CambiarEstado(persiguiendo);
+        }
     }
 }

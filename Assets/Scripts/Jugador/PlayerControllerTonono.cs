@@ -10,6 +10,8 @@ public class PlayerControllerTonono : MonoBehaviour
     public float Gravity = 9.8f;
     private float velocity = 0;
     RaycastHit miRayito;
+    public bool tengoLlave = false;
+    private bool contactoConLlave = false;
     public static PlayerControllerTonono Instancia { get; private set; }
     private void Start()
     {
@@ -36,27 +38,58 @@ public class PlayerControllerTonono : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (Physics.Raycast(miCamara.transform.position, miCamara.transform.forward, out miRayito, 5))
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag=="PuertaLlave")
         {
-            if (miRayito.transform.gameObject.tag == "Puerta")
+            if (tengoLlave==false)
             {
-                miRayito.transform.gameObject.GetComponent<InteraccionPuerta>().MostrarUiPuertas();
+                textoui.text = "Para poder pasar necesitas una llave, normalmente la profesora que esta en esta planta la suele llevar encima";
             }
             else
             {
-                textoui.text = "";
+                textoui.text = "Ya tienes la llave pulsa E para abrir la puerta";
             }
-            Debug.DrawRay(miCamara.transform.position, miCamara.transform.forward, Color.yellow);
+        }
+        else
+        {
+            textoui.text = "";
+        }
+    }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag=="Zombie")
+        {
+            hasPerdido();
+        }
+    }
+    private void hasPerdido()
+    {
+        miCamara.transform.SetParent(transform.parent);
+        Destroy(this.gameObject);
+        miCamara.transform.position += new Vector3(-5, 5, 0);
+        miCamara.transform.Rotate(50, 0, 0);
+        textoui.text = "HAS PERDIDO TE HA PILLADO UN SOMBIII";
+    }
+    private void OnTriggerExit(Collider other)
+    {
+        contactoConLlave = false;
+    }
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Llave")
+        {
+            contactoConLlave = true;
         }
     }
     public void OnInteraccion()
     {
-        if (Physics.Raycast(miCamara.transform.position, miCamara.transform.forward, out miRayito, 5))
+        if ((contactoConLlave)&&(tengoLlave==false))
         {
-            if (miRayito.transform.gameObject.tag == "Puerta")
-            {
-                EscuchadorEventos.AbrirCerrarPuerta(miRayito.transform.gameObject);
-            }
+            tengoLlave = true;
+            EscuchadorEventos.LlavePillada();
         }
     }
+
 }

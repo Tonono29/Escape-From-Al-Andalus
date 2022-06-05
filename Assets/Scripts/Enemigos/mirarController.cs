@@ -6,7 +6,7 @@ public class mirarController : MonoBehaviour
 {
     [SerializeField] int distanciaOjos=15;
     private GameObject[] ojos;
-    private GameObject objetivo;
+    [SerializeField]private GameObject objetivo;
     private void Awake()
     {
         ojos = new GameObject[35];
@@ -52,14 +52,13 @@ public class mirarController : MonoBehaviour
         for (int i = 0; i < 21; i++)
         {
             RaycastHit hit;
-
             if (Physics.Raycast(ojos[i].transform.position, ojos[i].transform.forward, out hit, distanciaOjos))
             {
                 if (hit.transform.gameObject.tag == "Jugador")
                 {
                     objetivo = hit.transform.gameObject;
                     Debug.DrawRay(ojos[i].transform.position, ojos[i].transform.forward * hit.distance, Color.yellow);
-                    EscuchadorEventos.JugadorEncontrado(hit.transform.gameObject,this.transform.parent.gameObject);
+                    EscuchadorEventos.JugadorEncontrado(objetivo,this.transform.parent.gameObject);
                 }
                 else
                 {

@@ -6,11 +6,11 @@ public abstract class Estado
     protected MaquinaEstados maquinaEstados;
     protected NavMeshAgent agente;
     protected Zombie zombie;
-    protected static GameObject jugadorEncontrado;
+    //protected static GameObject jugadorEncontrado;
    
     protected Estado(MaquinaEstados maquina, NavMeshAgent agenteNavmesh,Zombie zombie)
     {
-        EscuchadorEventos.OnJugadorEncontrado += JugadorEncontrado;
+        //EscuchadorEventos.OnJugadorEncontrado += JugadorEncontrado;
         this.maquinaEstados = maquina;
         this.agente = agenteNavmesh;
         this.zombie = zombie;
@@ -21,20 +21,14 @@ public abstract class Estado
     }
     public abstract void Salir();
     public abstract void Actualizar();
-    public abstract void JugadorEncontrado(GameObject jugador,GameObject sombi);
+    /*public abstract void JugadorEncontrado(GameObject jugador,GameObject sombi);
    
     public virtual void JugadorPerdido(GameObject jugador)
     {
-    }
-    protected void cambiarJugadorEncontrado(GameObject jugadorEncontrado)
+    }*/
+    /*protected void cambiarJugadorEncontrado(GameObject jugadorEncontrado)
     {
         Estado.jugadorEncontrado = jugadorEncontrado;
-        if (jugadorEncontrado == null)
-        {
-        }
-        else
-        {
-        }
-    }
+    }*/
  
 }

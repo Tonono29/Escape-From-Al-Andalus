@@ -14,11 +14,14 @@ public class Patrullando : Estado
     }
     public override void Entrar()
     {
-        base.Entrar();
+        Vector3 vectorAux;
         int destinoAleatorio;
         totalpuntosdestino = this.destinosPatrulla.Length;
-        destinoAleatorio = Random.Range(0, totalpuntosdestino);
+        destinoAleatorio = Random.Range(0, totalpuntosdestino-1);
         destinoActual = destinosPatrulla[destinoAleatorio];
+        vectorAux = destinoActual;
+        destinosPatrulla[destinoAleatorio] = destinosPatrulla[totalpuntosdestino - 1];
+        destinosPatrulla[totalpuntosdestino - 1] = vectorAux;
         this.agente.ResetPath();
         this.agente.SetDestination(destinoActual);
     }
@@ -33,12 +36,12 @@ public class Patrullando : Estado
             maquinaEstados.CambiarEstado(zombie.buscando);
         }
     }
-    public override void JugadorEncontrado(GameObject jugador, GameObject sombie)
+    /*public override void JugadorEncontrado(GameObject jugador, GameObject sombie)
     {
         if (sombie == this.zombie.gameObject)
         {
             cambiarJugadorEncontrado(jugador);
             maquinaEstados.CambiarEstado(zombie.persiguiendo);
         }
-    }
+    }*/
 }
