@@ -139,6 +139,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MovementSpeed: 5
   Gravity: 9.8
+  tengoLlave: 0
   nick: {fileID: 5982502017316675148}
 --- !u!143 &5723195462746839456
 CharacterController:
@@ -251,7 +252,7 @@ MonoBehaviour:
   ObservedComponentsFoldoutOpen: 1
   Group: 0
   prefixField: -1
-  Synchronization: 3
+  Synchronization: 1
   OwnershipTransfer: 0
   observableSearch: 2
   ObservedComponents:
