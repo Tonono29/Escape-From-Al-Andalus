@@ -4,13 +4,15 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Jugador
   - Puerta
+  - Jugador
+  - Zombie
+  - Llave
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - jugador
+  - 
   - Water
   - UI
   - 
