@@ -24,7 +24,7 @@ public class PuertaLllave : MonoBehaviour
     }
     public void CerrarPuerta()
     {
-        puerta1.gameObject.transform.RotateAround(objetoPivote.transform.position, Vector3.up * -1, 120);
+        puerta1.gameObject.transform.RotateAround(objetoPivote1.transform.position, Vector3.up * -1, 120);
         puerta.gameObject.transform.RotateAround(objetoPivote.transform.position, Vector3.up * 1, 120);
     }
     public void AbrirCerrar()
