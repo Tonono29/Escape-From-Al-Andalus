@@ -17,10 +17,12 @@ public class InteraccionPuerta : MonoBehaviour
     public void AbrirPuerta()
     {
         puerta.gameObject.transform.RotateAround(objetoPivote.transform.position,Vector3.up,120);
+        GetComponent<AudioSource>().Play();
     }
     public void CerrarPuerta()
     {
         puerta.gameObject.transform.RotateAround(objetoPivote.transform.position, Vector3.up*-1, 120);
+        GetComponent<AudioSource>().Play();
     }
     public void AbrirCerrar()
     {

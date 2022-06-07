@@ -8,6 +8,7 @@ TagManager:
   - Jugador
   - Zombie
   - Llave
+  - Ganar
   layers:
   - Default
   - TransparentFX

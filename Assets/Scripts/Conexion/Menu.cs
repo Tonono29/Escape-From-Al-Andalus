@@ -40,7 +40,7 @@ public class Menu : MonoBehaviour
     IEnumerator cargarConexion()
     {
         yield return new WaitForSeconds(clip.length);
-        SceneManager.LoadScene("conexion");
+        SceneManager.LoadScene("EscenarioJuego");
     }
     IEnumerator salirJuego()
     {

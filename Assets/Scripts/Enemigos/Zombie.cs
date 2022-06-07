@@ -20,6 +20,7 @@ public class Zombie : MonoBehaviour
     public float factorCorreccionAltura;
     private void Awake()
     {
+        GetComponent<AudioSource>().Play();
         EscuchadorEventos.OnJugadorEncontrado += JugadorEncontrado;
         miCuerpo = GetComponentInChildren<Rigidbody>();
         animatorZombie = GetComponent<Animator>();

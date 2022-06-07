@@ -1,5 +1,7 @@
 using UnityEngine;
+using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class PlayerControllerTonono : MonoBehaviour
 {
@@ -67,12 +69,15 @@ public class PlayerControllerTonono : MonoBehaviour
     private void hasPerdido()
     {
         miCamara.transform.SetParent(transform.parent);
-        Destroy(this.gameObject);
+        //Destroy(this.gameObject);
+        this.gameObject.GetComponent<MeshRenderer>().enabled = false;
         miCamara.transform.position += new Vector3(-5, 5, 0);
         miCamara.transform.Rotate(50, 0, 0);
-        textoui.text = "HAS PERDIDO TE HA PILLADO UN SOMBIII";
+        textoui.text = "HAS MUERTO";
+        StartCoroutine("empezarNuevo");
     }
-    private void OnTriggerExit(Collider other)
+    
+        private void OnTriggerExit(Collider other)
     {
         contactoConLlave = false;
     }
@@ -91,5 +96,9 @@ public class PlayerControllerTonono : MonoBehaviour
             EscuchadorEventos.LlavePillada();
         }
     }
-
+    IEnumerator empezarNuevo()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("menu");
+    }
 }
