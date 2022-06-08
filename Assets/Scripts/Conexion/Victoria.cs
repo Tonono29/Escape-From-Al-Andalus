@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Diagnostics;
 
 public class Victoria : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class Victoria : MonoBehaviour
     IEnumerator salirJuego()
     {
         yield return new WaitForSeconds(clip.length);
-        SceneManager.LoadScene("menu");
+        Process.Start(Application.dataPath + "/../Escape From Al-Andalus.exe");
+        Application.Quit();
     }
 }

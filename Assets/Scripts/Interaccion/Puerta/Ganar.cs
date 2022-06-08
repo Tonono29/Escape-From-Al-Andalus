@@ -7,12 +7,7 @@ public class Ganar : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine("ganar");
-        
-    }
-    IEnumerator ganar()
-    {
-        yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("Victoria");
+
     }
 }

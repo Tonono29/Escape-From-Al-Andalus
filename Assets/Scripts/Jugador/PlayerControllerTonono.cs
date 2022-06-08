@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Diagnostics;
 
 public class PlayerControllerTonono : MonoBehaviour
 {
@@ -100,6 +101,7 @@ public class PlayerControllerTonono : MonoBehaviour
     {
         yield return new WaitForSeconds(3f);
         Cursor.visible = true;
-        SceneManager.LoadScene("menu");
+        Process.Start(Application.dataPath + "/../Escape From Al-Andalus.exe");
+        Application.Quit();
     }
 }
