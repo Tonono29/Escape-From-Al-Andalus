@@ -651,7 +651,7 @@ GameObject:
   - component: {fileID: 3889126818134669902}
   - component: {fileID: 5612934976095173434}
   - component: {fileID: 2547383827185897423}
-  - component: {fileID: 1585599046056044163}
+  - component: {fileID: 799617941659299517}
   m_Layer: 0
   m_Name: JuanAntonio
   m_TagString: Zombie
@@ -688,6 +688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9917c6ff765c2e41933c11a767ec2b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  impact: {fileID: 0}
   esperando: 0
   hordaZombie: 0
   destinos:
@@ -755,7 +756,7 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!82 &1585599046056044163
+--- !u!82 &799617941659299517
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -765,7 +766,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 76b05b8b2a905c44b96565a1ae33567c, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

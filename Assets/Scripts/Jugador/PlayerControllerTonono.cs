@@ -99,6 +99,7 @@ public class PlayerControllerTonono : MonoBehaviour
     IEnumerator empezarNuevo()
     {
         yield return new WaitForSeconds(3f);
+        Cursor.visible = true;
         SceneManager.LoadScene("menu");
     }
 }

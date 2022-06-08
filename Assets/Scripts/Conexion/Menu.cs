@@ -26,7 +26,7 @@ public class Menu : MonoBehaviour
         botonCreditos.enabled = false;
         botonSalir.enabled = false;
         source.PlayOneShot(clip);
-        SceneManager.LoadScene("creditos");
+        StartCoroutine("cargarCreditos");
     }
     public void pulsarBotonSalir()
     {
@@ -41,6 +41,11 @@ public class Menu : MonoBehaviour
     {
         yield return new WaitForSeconds(clip.length);
         SceneManager.LoadScene("EscenarioJuego");
+    }
+    IEnumerator cargarCreditos()
+    {
+        yield return new WaitForSeconds(clip.length);
+        SceneManager.LoadScene("creditos");
     }
     IEnumerator salirJuego()
     {

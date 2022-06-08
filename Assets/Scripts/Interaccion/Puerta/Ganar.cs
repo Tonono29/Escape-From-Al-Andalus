@@ -7,6 +7,12 @@ public class Ganar : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene("menu");
+        StartCoroutine("ganar");
+        
+    }
+    IEnumerator ganar()
+    {
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("Victoria");
     }
 }

@@ -26,6 +26,7 @@ public class Llave : MonoBehaviour
     }
     private void LlavePillada()
     {
+        GetComponent<AudioSource>().Play();
         textoui.text = "";
         Destroy(this.transform.parent.gameObject);
     }

@@ -5,6 +5,7 @@ using UnityEngine.AI;
 
 public class Zombie : MonoBehaviour
 {
+    public AudioClip impact;
     private Rigidbody miCuerpo;
     private Animator animatorZombie;
     public bool esperando = false;
@@ -20,7 +21,6 @@ public class Zombie : MonoBehaviour
     public float factorCorreccionAltura;
     private void Awake()
     {
-        GetComponent<AudioSource>().Play();
         EscuchadorEventos.OnJugadorEncontrado += JugadorEncontrado;
         miCuerpo = GetComponentInChildren<Rigidbody>();
         animatorZombie = GetComponent<Animator>();
@@ -73,6 +73,7 @@ public class Zombie : MonoBehaviour
         if ((sombie == this.gameObject) && (maquinaEstados.EstadoActual != persiguiendo))
         {
             persiguiendo.jugadorEncontrado = jugador;
+            GetComponent<AudioSource>().PlayOneShot(impact, 1F);
             maquinaEstados.CambiarEstado(persiguiendo);
         }
     }

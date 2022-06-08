@@ -69,6 +69,7 @@ public class PuertaLllave : MonoBehaviour
     {
         if ((encontacto)&&(tieneLlave))
         {
+            GetComponent<AudioSource>().Play();
             AbrirCerrar();
         }
 

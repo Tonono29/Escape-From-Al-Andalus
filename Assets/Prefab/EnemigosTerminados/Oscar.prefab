@@ -109,7 +109,7 @@ GameObject:
   - component: {fileID: 782401640743264763}
   - component: {fileID: 782401640743264644}
   - component: {fileID: 782401640743264760}
-  - component: {fileID: 4319029142802244963}
+  - component: {fileID: 8300314122506161829}
   m_Layer: 0
   m_Name: Oscar
   m_TagString: Zombie
@@ -184,6 +184,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9917c6ff765c2e41933c11a767ec2b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  impact: {fileID: 0}
   esperando: 0
   hordaZombie: 0
   destinos:
@@ -227,7 +228,7 @@ CapsuleCollider:
   m_Height: 1.5370861
   m_Direction: 1
   m_Center: {x: 0.03, y: 1.0385429, z: 0.06}
---- !u!82 &4319029142802244963
+--- !u!82 &8300314122506161829
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -237,18 +238,18 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6ea6ca15ce6fb6846834e7bf5c5b20e1, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 1
+  Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 1
-  MinDistance: 0.3
-  MaxDistance: 0.6
+  MinDistance: 1
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -258,26 +259,8 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.14314194
-      value: 0.9950714
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.27757645
-      value: 0.8878937
-      inSlope: -1.25
-      outSlope: -1.25
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.42809278
-      value: 0.586998
+      time: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -285,26 +268,8 @@ AudioSource:
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.6019951
-      value: 0.13318634
-      inSlope: -0.5094812
-      outSlope: -0.5094812
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 1
-    - serializedVersion: 3
-      time: 0.7692252
-      value: 0.13318634
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.8963235
-      value: 0.019737244
+      time: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -319,7 +284,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1849,7 +1814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distanciaOjos: 15
-  objetivo: {fileID: 0}
+  objetivo: {fileID: 2212611831617590485, guid: dae1f94dae5f9864db1ec9048d5d3f5c, type: 3}
 --- !u!1 &9168643687968452608
 GameObject:
   m_ObjectHideFlags: 0
