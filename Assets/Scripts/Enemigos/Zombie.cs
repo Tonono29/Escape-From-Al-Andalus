@@ -77,4 +77,8 @@ public class Zombie : MonoBehaviour
             maquinaEstados.CambiarEstado(persiguiendo);
         }
     }
+    private void OnDestroy()
+    {
+        EscuchadorEventos.OnJugadorEncontrado -= JugadorEncontrado;
+    }
 }

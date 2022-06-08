@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using System.Diagnostics;
+using UnityEngine.UI;
 
 public class Victoria : MonoBehaviour
 {
@@ -23,7 +21,11 @@ public class Victoria : MonoBehaviour
     IEnumerator salirJuego()
     {
         yield return new WaitForSeconds(clip.length);
-        Process.Start(Application.dataPath + "/../Escape From Al-Andalus.exe");
+        //Process.Start(Application.dataPath + "/../Escape From Al-Andalus.exe");
         Application.Quit();
+    }
+    public void MenuPcpal()
+    {
+        SceneManager.LoadScene("Menu",LoadSceneMode.Single);
     }
 }

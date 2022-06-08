@@ -30,4 +30,8 @@ public class Llave : MonoBehaviour
         textoui.text = "";
         Destroy(this.transform.parent.gameObject);
     }
+    private void OnDestroy()
+    {
+        EscuchadorEventos.OnllavePillada -= LlavePillada;
+    }
 }

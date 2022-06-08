@@ -75,7 +75,7 @@ public class PlayerControllerTonono : MonoBehaviour
         miCamara.transform.position += new Vector3(-5, 5, 0);
         miCamara.transform.Rotate(50, 0, 0);
         textoui.text = "HAS MUERTO";
-        StartCoroutine("empezarNuevo");
+        StartCoroutine("GameOver");
     }
     
         private void OnTriggerExit(Collider other)
@@ -97,11 +97,10 @@ public class PlayerControllerTonono : MonoBehaviour
             EscuchadorEventos.LlavePillada();
         }
     }
-    IEnumerator empezarNuevo()
+    IEnumerator GameOver()
     {
         yield return new WaitForSeconds(3f);
         Cursor.visible = true;
-        Process.Start(Application.dataPath + "/../Escape From Al-Andalus.exe");
-        Application.Quit();
+        SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
     }
 }

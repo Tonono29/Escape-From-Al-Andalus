@@ -39,17 +39,17 @@ public class Menu : MonoBehaviour
 
     IEnumerator cargarConexion()
     {
-        yield return new WaitForSeconds(clip.length);
-        SceneManager.LoadScene("EscenarioJuego");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("EscenarioJuego",LoadSceneMode.Single);
     }
     IEnumerator cargarCreditos()
     {
-        yield return new WaitForSeconds(clip.length);
-        SceneManager.LoadScene("creditos");
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene("creditos",LoadSceneMode.Single);
     }
     IEnumerator salirJuego()
     {
-        yield return new WaitForSeconds(clip.length);
+        yield return new WaitForSeconds(1);
         Application.Quit();
     }
 }

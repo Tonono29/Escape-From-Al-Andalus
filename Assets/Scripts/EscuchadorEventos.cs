@@ -16,7 +16,7 @@ public  static class EscuchadorEventos
     public static event ManejadorJugadorEncontrado OnJugadorEncontrado;
     public static event ManejadorLlave OnllavePillada;
     //public static event ManejadorAbrirCerrar OnAbrirCerrarPuerta;
-    #endregion
+    #endregion 
     public static void JugadorEncontrado(GameObject juga, GameObject sombie)
     {
         OnJugadorEncontrado?.Invoke(juga,sombie);
