@@ -18,7 +18,8 @@ public class Menu : MonoBehaviour
         botonCreditos.enabled = false;
         botonSalir.enabled = false;
         source.PlayOneShot(clip);
-        StartCoroutine("cargarConexion");
+        SceneManager.LoadScene("EscenarioJuego");
+        //StartCoroutine("cargarConexion");
     }
     public void pulsarBotonCreditos()
     {
@@ -37,15 +38,15 @@ public class Menu : MonoBehaviour
         StartCoroutine("salirJuego");
     }
 
-    IEnumerator cargarConexion()
+    /*IEnumerator cargarConexion()
     {
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("EscenarioJuego",LoadSceneMode.Single);
-    }
+        SceneManager.LoadScene("EscenarioJuego");
+    }*/
     IEnumerator cargarCreditos()
     {
-        yield return new WaitForSeconds(1);
-        SceneManager.LoadScene("creditos",LoadSceneMode.Single);
+        yield return new WaitForSeconds(0.5f);
+        SceneManager.LoadScene("creditos");
     }
     IEnumerator salirJuego()
     {
